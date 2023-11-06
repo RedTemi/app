@@ -1,0 +1,5 @@
+mutation sessionDisable($id: ID!) {
+  sessionDisable(id: $id) {
+    id
+  }
+}

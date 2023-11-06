@@ -1,0 +1,7 @@
+#import "./fragment_session.graphql"
+
+query sessionsNext {
+  sessionListAsParticipant {
+    ...SessionContent
+  }
+}

@@ -1,0 +1,15 @@
+#import "./fragment_session.graphql"
+
+query sessionsScreen {
+  sessionListAsParticipant {
+    ...SessionContent
+  }
+  participantGetAsParticipant {
+    nodeId
+    trainerId
+    sessionStats {
+      upcoming
+      booked
+    }
+  }
+}

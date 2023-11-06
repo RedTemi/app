@@ -1,0 +1,5 @@
+mutation sessionBook($start: AWSDateTime!, $eventId: ID) {
+  sessionBook(start: $start, eventId: $eventId) {
+    id
+  }
+}

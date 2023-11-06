@@ -1,0 +1,10 @@
+#import "./fragment_session.graphql"
+
+query sessionBookData($start: AWSDateTime, $days: Int) {
+  trainerAvailability(start: $start, days: $days) {
+    start
+  }
+  # sessionListAsParticipant {
+  #   ...SessionContent
+  # }
+}

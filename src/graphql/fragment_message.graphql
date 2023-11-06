@@ -1,0 +1,10 @@
+fragment MessageContent on Message {
+  id
+  nodeId
+  fromId
+  toId
+  message
+  # read
+  # sessionId
+  createdAt
+}

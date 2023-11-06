@@ -1,0 +1,48 @@
+import ColorPalette, { Color } from '@Constants/colors';
+
+interface Discipline {
+  backgroundColor: Color;
+  color: Color;
+  purpose: string;
+  strategies: string;
+  statement: string;
+}
+
+export type DisciplineObject = Record<string, Discipline>;
+
+const disciplines: DisciplineObject = {
+  exchange: {
+    purpose: 'To utilize all resources',
+    strategies:
+      'I don’t like asking other people for\n help - If I want something done\n right, I do it myself - I keep my most\n important projects, to myself',
+    statement: 'It’s ok, I will do it myself!',
+    backgroundColor: 'blue',
+    color: ColorPalette.white,
+  },
+  ambition: {
+    purpose: 'To stimulate my development',
+    strategies:
+      'I want to be the best at something \nnew, even before I begin - I don’t \nlike committing to new things - I want \nto be 100% sure I can meet the deadline, \nbefore starting a project',
+    statement: 'I can’t promise that!',
+    backgroundColor: 'black',
+    color: ColorPalette.white,
+  },
+  integrity: {
+    purpose: 'To honor my word',
+    strategies:
+      'Colleagues often misunderstand me\n - I find it hard being the only \none with a controversial, outspoken \nopinion - I sometimes disagree with \nother people, but find it hard to state my own opinion',
+    statement: 'I agree!',
+    backgroundColor: 'white',
+    color: ColorPalette.black,
+  },
+  responsibility: {
+    purpose: 'To take care of myself',
+    strategies:
+      'I take on too many responsibilities\n - I’m bad at prioritizing myself - \nI rarely say: “I can’t help you”',
+    statement: 'I will do it!',
+    backgroundColor: 'yellow',
+    color: ColorPalette.black,
+  },
+} as const;
+
+export default disciplines;

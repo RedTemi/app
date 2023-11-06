@@ -1,0 +1,5 @@
+mutation sessionBookMultiple($timeList: [AWSDateTime]) {
+  sessionBookMultiple(timeList: $timeList) {
+    id
+  }
+}

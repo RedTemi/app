@@ -1,0 +1,16 @@
+#import "./fragment_task.graphql"
+
+query home {
+  participantGetAsParticipant {
+    nodeId
+    trainer {
+      user {
+        name
+        avatar
+      }
+    }
+  }
+  taskListAsParticipant {
+    ...TaskContent
+  }
+}

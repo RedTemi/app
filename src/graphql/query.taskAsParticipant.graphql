@@ -1,0 +1,7 @@
+query taskAsParticipant($id: ID!) {
+  taskAsParticipant(id: $id) {
+    nodeId,
+    description,
+    completedAt
+  }
+}

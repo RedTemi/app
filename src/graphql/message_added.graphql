@@ -1,0 +1,7 @@
+#import "./fragment_message.graphql"
+
+subscription messageAdded($toId: ID!) {
+  messageAdded(toId: $toId) {
+    ...MessageContent
+  }
+}

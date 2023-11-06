@@ -1,0 +1,5 @@
+mutation participantSetExponentPushToken($token: String!) {
+  participantSetExponentPushToken(token: $token) {
+    userId
+  }
+}

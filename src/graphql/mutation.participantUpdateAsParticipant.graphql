@@ -1,0 +1,5 @@
+mutation participantUpdateAsParticipant($participant: ParticipantUpdateAsParticipantInput!) {
+  participantUpdateAsParticipant(participant: $participant) {
+    userId
+  }
+}

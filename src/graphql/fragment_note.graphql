@@ -1,0 +1,7 @@
+fragment NoteContent on Note {
+  # noteId
+  nodeId
+  note
+  createdAt
+  privacy
+}

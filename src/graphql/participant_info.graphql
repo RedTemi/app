@@ -1,0 +1,24 @@
+query participantDetails {
+  participantGetAsParticipant {
+    nodeId
+    userId
+    possibilities
+    statusQuos {
+      nodeId
+      statusQuo
+      createdAt
+    }
+    traitName
+    vision
+    user {
+      name
+      avatar
+    }
+    trainer {
+      user {
+        name
+        avatar
+      }
+    }
+  }
+}

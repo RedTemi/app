@@ -1,0 +1,17 @@
+#import "./fragment_message.graphql"
+
+query messageList {
+  participantGetAsParticipant {
+    nodeId
+    userId
+    trainer {
+      user {
+        name
+        avatar
+      }
+    }
+  }
+  messageList {
+    ...MessageContent
+  }
+}

@@ -1,0 +1,21 @@
+#import "./fragment_focuscheck.graphql"
+
+mutation focuscheckUpdateAsParticipant(
+  $id: ID!
+  $title: String
+  $intentionForMe: String
+  $intentionForOthers: String
+  $investigation: String
+  $successCriteria: String
+) {
+  focuscheckUpdateAsParticipant(
+    id: $id
+    title: $title
+    intentionForMe: $intentionForMe
+    intentionForOthers: $intentionForOthers
+    investigation: $investigation
+    successCriteria: $successCriteria
+  ) {
+    ...FocuscheckContent
+  }
+}

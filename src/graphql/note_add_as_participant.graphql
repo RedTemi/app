@@ -1,0 +1,7 @@
+#import "./fragment_note.graphql"
+
+mutation noteAddAsParticipant($note: String!) {
+  noteAddAsParticipant(note: $note) {
+    ...NoteContent
+  }
+}

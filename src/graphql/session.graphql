@@ -1,0 +1,7 @@
+#import "./fragment_session.graphql"
+
+query sessionGet($id: ID!) {
+  sessionGet(id: $id) {
+    ...SessionContent
+  }
+}

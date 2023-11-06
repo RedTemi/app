@@ -1,0 +1,11 @@
+query focuscheckGetAsParticipant($id: ID!) {
+  focuscheckGetAsParticipant(id: $id) {
+    nodeId
+    createdAt
+    title
+    intentionForMe
+    intentionForOthers
+    investigation
+    successCriteria
+  }
+}

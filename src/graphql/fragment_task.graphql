@@ -1,0 +1,8 @@
+fragment TaskContent on Task {
+  id,
+  nodeId
+  createdAt
+  description
+  repeatType
+  completedAt
+}

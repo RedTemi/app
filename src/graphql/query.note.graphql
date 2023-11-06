@@ -1,0 +1,10 @@
+query noteAsParticipant($id: ID!) {
+  noteAsParticipant(id: $id) {
+    nodeId
+    createdAt
+    updatedAt
+    sessionId
+    note
+    privacy
+  }
+}

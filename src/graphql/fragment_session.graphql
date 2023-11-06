@@ -1,0 +1,33 @@
+fragment SessionContent on Session {
+  nodeId
+  eventId
+  start
+  duration
+  status
+  sessionNo
+  trainerId
+  markedRecognitionAt
+  trainer {
+    facetimeId
+    skypeId
+    tel
+    user {
+      name
+      avatar
+    }
+  }
+  notes {
+    note
+    nodeId
+    createdAt
+    updatedAt
+  }
+  focusChecks {
+    nodeId
+  }
+  tasks {
+    nodeId
+    description
+    completedAt
+  }
+}

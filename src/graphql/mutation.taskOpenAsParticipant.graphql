@@ -1,0 +1,5 @@
+mutation taskOpenAsParticipant($id: ID!) {
+  taskOpenAsParticipant(id: $id) {
+    id
+  }
+}

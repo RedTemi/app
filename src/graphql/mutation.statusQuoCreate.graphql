@@ -1,0 +1,5 @@
+mutation statusQuoAdd($statusQuo: String!) {
+  statusQuoAdd(statusQuo: $statusQuo) {
+    id
+  }
+}

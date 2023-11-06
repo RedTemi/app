@@ -1,0 +1,5 @@
+mutation noteUpdateAsParticipant($id: ID!, $note: String!) {
+  noteUpdateAsParticipant(id: $id, note: $note) {
+    id
+  }
+}

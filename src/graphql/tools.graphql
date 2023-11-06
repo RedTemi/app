@@ -1,0 +1,26 @@
+query tools {
+  noteListAsParticipant {
+    nodeId
+    createdAt
+    updatedAt
+    sessionId
+    note
+    privacy
+  }
+  focuscheckListAsParticipant {
+    nodeId
+    createdAt
+    updatedAt
+    sessionId
+    title
+    intentionForMe
+    intentionForOthers
+    investigation
+    successCriteria
+  }
+  sessionListAsParticipant {
+    nodeId
+    start
+    status
+  }
+}

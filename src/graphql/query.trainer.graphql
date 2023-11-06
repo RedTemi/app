@@ -1,0 +1,13 @@
+query participantTrainer {
+  participantGetAsParticipant {
+    nodeId
+    trainer {
+      background
+      keywords
+      user {
+        name
+        avatar
+      }
+    }
+  }
+}

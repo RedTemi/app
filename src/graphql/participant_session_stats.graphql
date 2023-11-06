@@ -1,0 +1,14 @@
+query participantSessionStats {
+  participantGetAsParticipant {
+    nodeId
+    sessionStats {
+      total
+      previous
+    }
+    trainer {
+      user {
+        name
+      }
+    }
+  }
+}

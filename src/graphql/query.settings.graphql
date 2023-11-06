@@ -1,0 +1,10 @@
+query participantSettings {
+  participantGetAsParticipant {
+    nodeId
+    createdAt
+    user {
+      name
+      avatar
+    }
+  }
+}

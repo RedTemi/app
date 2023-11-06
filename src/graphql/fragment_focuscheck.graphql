@@ -1,0 +1,10 @@
+fragment FocuscheckContent on Focuscheck {
+  id
+  nodeId
+  createdAt
+  title
+  intentionForMe
+  intentionForOthers
+  investigation
+  successCriteria
+}
