@@ -1,4 +1,4 @@
-import errorHandler from '@Lib/errorHandler';
+import errorHandler from '../lib/errorHandler';
 import { Linking } from 'react-native';
 
 const canOpenLink = (link: string) => {

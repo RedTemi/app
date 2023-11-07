@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { TaskCloseAsParticipantDocument, TaskOpenAsParticipantDocument, Task } from '@Graphql/types.generated';
+import { TaskCloseAsParticipantDocument, TaskOpenAsParticipantDocument, Task } from '../graphql/types.generated';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, TouchableOpacity, GestureResponderEvent } from 'react-native';
@@ -9,8 +9,8 @@ import Cell from '@Components/Cell';
 import Checkcircle from '@Components/IconComponents/CheckCircle';
 import Row from '@Components/Row';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '@Screens/index';
-import getStyles from '@Styles/TaskContainer';
+import { Screen } from '../screens/index';
+import getStyles from '../style/TaskContainer';
 
 interface TaskContainerProps {
   task: Partial<Task>;

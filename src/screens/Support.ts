@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { Alert, Linking } from 'react-native';
 
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const linkMailto = 'mailto:support@weareheadlight.com';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 
-import MenuImages from '@Images/menu';
+import MenuImages from '@Assets/images/menu';
 
 interface TabBarIconProps {
   name: string;

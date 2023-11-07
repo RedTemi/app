@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';
 
-import { noop } from '@Utils/types';
+import { noop } from '../utils/types';
 
 interface SessionBookTimeContextType {
   selectedTime: string;

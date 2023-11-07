@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
-import { ToolsDocument, Note, Focuscheck, Session } from '@Graphql/types.generated';
-import { constructListWithDateProp, sortByCreatedAtDesc, sortByStart } from '@Lib/array';
+import { ToolsDocument, Note, Focuscheck, Session } from '../graphql/types.generated';
+import { constructListWithDateProp, sortByCreatedAtDesc, sortByStart } from '../lib/array';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { View, ScrollView } from 'react-native';

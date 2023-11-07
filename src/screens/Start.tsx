@@ -6,9 +6,9 @@ import Button from '@Components/Button';
 import Cell from '@Components/Cell';
 import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
-import useAuth from '@Hooks/auth';
+import useAuth from '../hooks/auth';
 import Images from '@Images/index';
-import { AppStartScreen } from '@Screens/index';
+import { AppStartScreen } from '../screens/index';
 
 const Start = () => {
   useAuth();

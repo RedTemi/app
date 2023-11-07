@@ -1,9 +1,9 @@
-import { time, formatYearMonthDay } from '@Lib/date';
+import { time, formatYearMonthDay } from '../lib/date';
 import React, { Dispatch, memo, SetStateAction } from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 
-import { TimeToCancel } from '@Screens/SessionBook';
-import style from '@Styles/SessionBook';
+import { TimeToCancel } from '../screens/SessionBook';
+import style from '../style/SessionBook';
 interface SessionBookItemProps {
   start: string;
   sessionId?: string;

@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { FocuscheckGetAsParticipantDocument, FocuscheckGetAsParticipantQuery } from '@Graphql/types.generated';
+import { FocuscheckGetAsParticipantDocument, FocuscheckGetAsParticipantQuery } from '../graphql/types.generated';
 import { useFocusEffect, useRoute } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { ScrollView } from 'react-native';
@@ -8,9 +8,9 @@ import { ScrollView } from 'react-native';
 import Background from '@Components/Background';
 import SafeArea from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import useHeaderRight from '@Hooks/header_right_focuscheck';
+import useHeaderRight from '../hooks/header_right_focuscheck';
 import { FocusCheckScreenProp } from '@Navigation/NavMain';
-import style from '@Styles/FocusCheck';
+import style from '../style/FocusCheck';
 
 export type FocusCheckScreenParams = { nodeId: string };
 

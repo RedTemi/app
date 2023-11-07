@@ -3,7 +3,7 @@ import React from 'react';
 
 import FocusCheckContainer from '@Components/FocusCheckContainer';
 import { FocusCheckStep5ScreenProp } from '@Navigation/NavMain';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 export type FocusCheckStep5ScreenParams = { nodeId: string };
 

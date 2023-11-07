@@ -1,0 +1,574 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+interface Node {
+  nodeId: ID!
+}
+
+type AvailabilityStats @aws_api_key {
+  month: String
+  slots: Int
+}
+
+type Company implements Node @aws_api_key @aws_cognito_user_pools {
+  comments: String
+  createdAt: AWSDateTime!
+  endsOn: AWSDateTime
+  id: ID!
+  name: String
+  nodeId: ID!
+}
+
+type CompanyId {
+  id: ID!
+}
+
+type EventInfo {
+  created: AWSDateTime
+  htmlLink: String
+  status: String
+  updated: AWSDateTime
+}
+
+type Focuscheck implements Node {
+  createdAt: AWSDateTime
+  id: ID!
+  intentionForMe: String
+  intentionForOthers: String
+  investigation: String
+  nodeId: ID!
+  participantId: ID
+  sessionId: ID
+  successCriteria: String
+  title: String
+  updatedAt: AWSDateTime
+}
+
+type Group implements Node @aws_api_key @aws_cognito_user_pools {
+  comments: String
+  company: Company
+  companyId: ID
+  createdAt: AWSDateTime!
+  deletedAt: AWSDateTime
+  id: ID!
+  name: String!
+  nodeId: ID!
+  participants: [Participant!]!
+  trainer: Trainer!
+  trainerId: ID!
+  updatedAt: AWSDateTime
+}
+
+type GroupId {
+  id: ID!
+}
+
+type GroupSession implements Node @aws_api_key @aws_cognito_user_pools {
+  comments: String
+  createdAt: AWSDateTime!
+  deletedAt: AWSDateTime
+  duration: Int!
+  group: Group!
+  groupId: ID!
+  id: ID!
+  nodeId: ID!
+  start: AWSDateTime!
+  updatedAt: AWSDateTime
+}
+
+type GroupSessionId {
+  id: ID!
+}
+
+type Message implements Node {
+  createdAt: AWSDateTime!
+  fromId: ID!
+  id: ID!
+  message: String!
+  nodeId: ID!
+  read: Boolean
+  sessionId: ID
+  toId: ID!
+}
+
+type Mutation {
+  cardSignup(client: CardSignupInput!): PaymentIntent @aws_api_key
+  companyCreate(company: CompanyInput!): CompanyId @aws_auth(cognito_groups : ["Admins"])
+  companyDisable(id: ID!): CompanyId @aws_auth(cognito_groups : ["Admins"])
+  companyUpdate(company: CompanyInput!): CompanyId @aws_auth(cognito_groups : ["Admins"])
+  focuscheckAddAsParticipant(intentionForMe: String, intentionForOthers: String, investigation: String, sessionId: ID, successCriteria: String, title: String!): Focuscheck @aws_auth(cognito_groups : ["Participants"])
+  focuscheckAddAsTrainer(intentionForMe: String, intentionForOthers: String, investigation: String, participantId: ID!, sessionId: ID, successCriteria: String, title: String!): Focuscheck @aws_auth(cognito_groups : ["Trainers"])
+  focuscheckDelete(id: ID!): Task @aws_auth(cognito_groups : ["Trainers", "Participants"])
+  focuscheckUpdateAsParticipant(id: ID!, intentionForMe: String, intentionForOthers: String, investigation: String, successCriteria: String, title: String): Focuscheck @aws_auth(cognito_groups : ["Participants"])
+  focuscheckUpdateAsTrainer(id: ID!, intentionForMe: String, intentionForOthers: String, investigation: String, successCriteria: String, title: String): Focuscheck @aws_auth(cognito_groups : ["Trainers"])
+  groupCreate(group: GroupInput!): GroupId @aws_auth(cognito_groups : ["Admins"])
+  groupDisable(id: ID!): GroupId @aws_auth(cognito_groups : ["Admins"])
+  groupSessionCreate(groupSession: GroupSessionCreateInput!): GroupSessionId @aws_auth(cognito_groups : ["Admins"])
+  groupSessionDisable(id: ID!): GroupSessionId @aws_auth(cognito_groups : ["Admins"])
+  groupSessionUpdate(groupSession: GroupSessionUpdateInput!): GroupSessionId @aws_auth(cognito_groups : ["Admins"])
+  groupUpdate(group: GroupInput!): GroupId @aws_auth(cognito_groups : ["Admins"])
+  invoiceSignup(client: InvoiceSignupInput!): PaymentIntent @aws_api_key
+  messageAddAsParticipant(message: String!): Message @aws_auth(cognito_groups : ["Participants"])
+  messageAddAsTrainer(message: String!, toId: ID!): Message @aws_auth(cognito_groups : ["Trainers"])
+  noteAddAsParticipant(note: String!): Note @aws_auth(cognito_groups : ["Participants"])
+  noteAddAsTrainer(note: String!, participantId: ID!, privacy: Int!, sessionId: ID!): Note @aws_auth(cognito_groups : ["Trainers"])
+  noteDeleteAsTrainer(id: ID!): Task @aws_auth(cognito_groups : ["Trainers"])
+  noteUpdateAsParticipant(id: ID!, note: String!): NoteId @aws_auth(cognito_groups : ["Participants"])
+  participantCreate(participant: ParticipantCreateInput!): ParticipantId @aws_auth(cognito_groups : ["Admins"])
+  participantDisable(id: ID!): ParticipantId @aws_auth(cognito_groups : ["Admins"])
+  participantEnroll(id: ID!): ParticipantId @aws_auth(cognito_groups : ["Admins"])
+  participantSetExponentPushToken(token: String!): ParticipantId @aws_auth(cognito_groups : ["Participants"])
+  participantSetGroup(groupId: ID, userId: ID!): ParticipantId @aws_auth(cognito_groups : ["Admins"])
+  participantUpdate(participant: ParticipantUpdateInput!): ParticipantId @aws_auth(cognito_groups : ["Admins"])
+  participantUpdateAsParticipant(participant: ParticipantUpdateAsParticipantInput!): ParticipantId @aws_auth(cognito_groups : ["Participants"])
+  sessionBook(duration: Int, eventId: ID, start: AWSDateTime!): SessionBooked @aws_auth(cognito_groups : ["Participants"])
+  sessionBookMultiple(timeList: [AWSDateTime]): [SessionBooked] @aws_auth(cognito_groups : ["Participants"])
+  sessionDisable(id: ID!): Session @aws_auth(cognito_groups : ["Admins", "Participants"])
+  sessionMarkAsRecognition(id: ID!): Session @aws_auth(cognito_groups : ["Trainers"])
+  sessionMarkAsStatusQuo(id: ID!): Session @aws_auth(cognito_groups : ["Trainers"])
+  sessionSetStatus(id: ID!, status: SessionStatus!): Session @aws_auth(cognito_groups : ["Trainers"])
+  sessionUnmarkAsRecognition(id: ID!): Session @aws_auth(cognito_groups : ["Trainers"])
+  sessionUnmarkAsStatusQuo(id: ID!): Session @aws_auth(cognito_groups : ["Trainers"])
+  statusQuoAdd(statusQuo: String!): StatusQuoId @aws_auth(cognito_groups : ["Participants"])
+  statusQuoDelete(id: ID!): StatusQuoId @aws_auth(cognito_groups : ["Participants"])
+  statusQuoUpdate(id: ID!, statusQuo: String!): StatusQuoId @aws_auth(cognito_groups : ["Participants"])
+  taskCloseAsParticipant(id: ID!): Task @aws_auth(cognito_groups : ["Participants"])
+  taskCloseAsTrainer(id: ID!): Task @aws_auth(cognito_groups : ["Trainers"])
+  taskCreateAsTrainer(description: String!, participantId: ID!, repeatType: RepeatType, sessionId: ID): Task @aws_auth(cognito_groups : ["Trainers"])
+  taskDeleteAsTrainer(id: ID!): Task @aws_auth(cognito_groups : ["Trainers"])
+  taskOpenAsParticipant(id: ID!): Task @aws_auth(cognito_groups : ["Participants"])
+  trainerCreate(trainer: TrainerInput!): TrainerId @aws_auth(cognito_groups : ["Admins"])
+  trainerDisable(id: ID!): TrainerId @aws_auth(cognito_groups : ["Admins"])
+  trainerUpdate(trainer: TrainerInput!): TrainerId @aws_auth(cognito_groups : ["Admins"])
+  updateAvatar: User @aws_auth(cognito_groups : ["Participants"])
+}
+
+type Note implements Node {
+  createdAt: AWSDateTime
+  id: ID!
+  nodeId: ID!
+  note: String
+  participantId: ID
+  privacy: Int
+  sessionId: ID
+  trainerId: ID
+  updatedAt: AWSDateTime
+}
+
+type NoteId {
+  id: ID!
+}
+
+type Participant implements Node @aws_api_key @aws_cognito_user_pools {
+  company: Company
+  companyId: ID
+  createdAt: AWSDateTime!
+  focusChecks: [Focuscheck!] @aws_cognito_user_pools
+  group: Group
+  groupId: ID
+  groupSessions: [GroupSession!]!
+  language: Language
+  nodeId: ID!
+  note: String
+  notes: [Note!] @aws_cognito_user_pools
+  phoneOS: PhoneOS
+  possibilities: String @aws_cognito_user_pools
+  sessionStats: SessionStats!
+  sessions: [Session!]!
+  sessionsLeft: Int
+  status: ParticipantStatus!
+  statusQuo: String @aws_cognito_user_pools
+  statusQuos: [StatusQuo!]! @aws_cognito_user_pools
+  subscriptionLength: Int
+  tasks: [Task!] @aws_cognito_user_pools
+  tel: String
+  trainer: Trainer!
+  trainerId: ID
+  traitName: String
+  type: ParticipantType
+  unenrolledAt: AWSDateTime
+  updatedAt: AWSDateTime
+  user: User!
+  userId: ID!
+  vatCode: String
+  vision: [String] @aws_cognito_user_pools
+}
+
+type ParticipantId {
+  userId: ID!
+}
+
+type PaymentIntent @aws_api_key {
+  error: String
+  url: String!
+}
+
+type PublicParticipant implements Node @aws_api_key {
+  nodeId: ID!
+  sessions: [PublicSession!]!
+  trainer: PublicUser!
+  user: PublicUser!
+  userId: ID!
+}
+
+type PublicSession implements Node @aws_api_key {
+  nodeId: ID!
+  start: AWSDateTime!
+}
+
+type PublicTrainer implements Node @aws_api_key {
+  languages: [String]
+  nodeId: ID!
+  trainer: PublicUser!
+  userId: ID!
+}
+
+type PublicUser implements Node @aws_api_key {
+  name: String!
+  nodeId: ID!
+}
+
+type Query {
+  allSessionsDatesAsSelf: [SessionDate!]! @aws_auth(cognito_groups : ["Trainers"])
+  companyGet(id: ID!): Company @aws_auth(cognito_groups : ["Admins"])
+  companyList: [Company!]! @aws_api_key @aws_cognito_user_pools(cognito_groups : ["Admins"])
+  focuscheckGetAsParticipant(id: ID!): Focuscheck @aws_auth(cognito_groups : ["Participants"])
+  focuscheckListAsParticipant: [Focuscheck] @aws_auth(cognito_groups : ["Participants"])
+  getSignedUrl: SignedUrl @aws_auth(cognito_groups : ["Participants"])
+  getStatisticsCompanies(from: AWSDateTime, to: AWSDateTime): [StatisticsCompanies!]! @aws_auth(cognito_groups : ["Admins"])
+  getStatisticsGeneral(from: AWSDateTime, to: AWSDateTime): [StatisticsGeneral!]! @aws_auth(cognito_groups : ["Admins"])
+  getUnmatchedClients: [StripeSession!]! @aws_auth(cognito_groups : ["Admins"])
+  groupGet(id: ID!): Group @aws_auth(cognito_groups : ["Admins"])
+  groupList: [Group!]! @aws_api_key @aws_cognito_user_pools(cognito_groups : ["Admins"])
+  groupSessionGet(id: ID!): GroupSession @aws_auth(cognito_groups : ["Admins", "Trainers"])
+  groupSessionList(groupId: ID!): [GroupSession!]! @aws_auth(cognito_groups : ["Trainers", "Admins"])
+  groupSessionListAsSelf(from: AWSDateTime, to: AWSDateTime): [GroupSession!]! @aws_auth(cognito_groups : ["Trainers"])
+  messageList: [Message]
+  messageListAsTrainer(participantId: ID!): [Message] @aws_auth(cognito_groups : ["Trainers"])
+  noteAsParticipant(id: ID!): Note @aws_auth(cognito_groups : ["Participants"])
+  noteListAsParticipant: [Note] @aws_auth(cognito_groups : ["Participants"])
+  noteListAsTrainer: [Note] @aws_auth(cognito_groups : ["Trainers"])
+  participantGet(id: ID!): Participant @aws_auth(cognito_groups : ["Admins"])
+  participantGetAsParticipant: Participant @aws_auth(cognito_groups : ["Participants"])
+  participantGetAsTrainer(id: ID!): Participant @aws_auth(cognito_groups : ["Trainers"])
+  participantGetPublic(id: ID!): PublicParticipant @aws_api_key
+  participantList: [Participant!]! @aws_api_key @aws_cognito_user_pools(cognito_groups : ["Admins"])
+  participantsListForGroup(groupId: ID!): [Participant!]! @aws_auth(cognito_groups : ["Admins"])
+  sessionGet(id: ID!): Session @aws_auth(cognito_groups : ["Participants"])
+  sessionGetAsAdmin(id: ID!): Session @aws_auth(cognito_groups : ["Admins"])
+  sessionGetAsTrainer(id: ID!): Session @aws_auth(cognito_groups : ["Trainers", "Admins"])
+  sessionList(from: AWSDateTime, to: AWSDateTime): [Session!]! @aws_api_key @aws_cognito_user_pools(cognito_groups : ["Admins"])
+  sessionListAsParticipant: [Session!]! @aws_auth(cognito_groups : ["Participants"])
+  sessionListAsSelf(from: AWSDateTime, to: AWSDateTime): [Session!]! @aws_auth(cognito_groups : ["Trainers"])
+  taskAsParticipant(id: ID!): Task! @aws_auth(cognito_groups : ["Participants"])
+  taskListAsParticipant: [Task!] @aws_auth(cognito_groups : ["Participants"])
+  trainerAvailability(days: Int, duration: Int, start: AWSDateTime): [TrainerAvailability] @aws_auth(cognito_groups : ["Participants"])
+  trainerAvailabilityAsAdmin(days: Int, duration: Int, id: ID!, start: AWSDateTime): [TrainerAvailability] @aws_api_key @aws_cognito_user_pools(cognito_groups : ["Admins"])
+  trainerAvailabilityAsTrainer(days: Int, duration: Int, start: AWSDateTime): [TrainerAvailability] @aws_auth(cognito_groups : ["Trainers"])
+  trainerCalendars(email: AWSEmail!): [TrainerCalendars] @aws_auth(cognito_groups : ["Admins"])
+  trainerGet(id: ID!): Trainer @aws_auth(cognito_groups : ["Admins"])
+  trainerGetSelf: Trainer @aws_auth(cognito_groups : ["Trainers"])
+  trainerList: [Trainer] @aws_api_key @aws_cognito_user_pools(cognito_groups : ["Admins"])
+  trainerListPublic: [PublicTrainer!] @aws_api_key
+  trainersAvailability(duration: Int): [TrainersAvailability] @aws_api_key
+}
+
+type Session implements Node @aws_api_key @aws_cognito_user_pools {
+  createdAt: AWSDateTime
+  deletedAt: AWSDateTime
+  duration: Int
+  eventId: ID
+  eventInfo: EventInfo
+  focusChecks: [Focuscheck!]
+  id: ID!
+  markedRecognitionAt: AWSDateTime
+  markedStatusQuoAt: AWSDateTime
+  nodeId: ID!
+  notes: [Note!]!
+  participant: Participant
+  participantId: ID
+  sessionNo: Int
+  start: AWSDateTime!
+  status: SessionStatus
+  tasks: [Task!]
+  trainer: Trainer
+  trainerId: ID
+  updatedAt: AWSDateTime
+}
+
+type SessionBooked {
+  id: ID!
+}
+
+type SessionDate {
+  start: AWSDateTime!
+  type: String!
+}
+
+type SessionStats @aws_api_key @aws_cognito_user_pools {
+  booked: Int!
+  held: Int!
+  next: AWSDateTime
+  noshow: Int!
+  previous: AWSDateTime
+  total: Int!
+  upcoming: Int!
+}
+
+type SignedUrl {
+  formdata: AWSJSON!
+}
+
+type StatisticsCompanies @aws_api_key @aws_cognito_user_pools {
+  completeSessions: Int!
+  createdAt: AWSDateTime!
+  id: String!
+  name: String!
+  participantCount: Int!
+  teamSessions: Int!
+}
+
+type StatisticsGeneral @aws_api_key @aws_cognito_user_pools {
+  activeCoaches: Int!
+  activeParticipants: Int!
+  createdAt: AWSDateTime!
+  participantsB2B: Int!
+  participantsB2C: Int!
+  participantsEXEC: Int!
+  participantsFREE: Int!
+  participantsTRIAL: Int!
+  zeroBooked: Int!
+}
+
+type StatusQuo implements Node @aws_api_key @aws_cognito_user_pools {
+  createdAt: AWSDateTime!
+  id: ID
+  nodeId: ID!
+  statusQuo: String
+  updatedAt: AWSDateTime
+}
+
+type StatusQuoId {
+  id: ID!
+}
+
+type StripeSession @aws_api_key @aws_cognito_user_pools {
+  amount: Int
+  createdAt: AWSDateTime!
+  email: String
+  id: ID!
+  name: String
+  tel: String
+}
+
+type Subscription {
+  messageAdded(fromId: ID, toId: ID): Message @aws_subscribe(mutations : ["messageAddAsTrainer", "messageAddAsParticipant"])
+}
+
+type Task implements Node {
+  completedAt: AWSDateTime
+  createdAt: AWSDateTime!
+  description: String
+  id: ID!
+  nodeId: ID!
+  participantId: ID
+  repeatType: RepeatType
+  trainerId: ID
+}
+
+type Trainer implements Node @aws_api_key @aws_cognito_user_pools {
+  airtable: String
+  background: String
+  calendars: [String]
+  createdAt: AWSDateTime!
+  facetimeId: String
+  keywords: [String]
+  languages: [String]
+  nodeId: ID!
+  participants: [Participant!]
+  skypeId: String
+  tel: String
+  timezone: Int
+  updatedAt: AWSDateTime
+  user: User!
+  userId: ID!
+}
+
+type TrainerAvailability @aws_api_key @aws_cognito_user_pools {
+  end: AWSDateTime
+  start: AWSDateTime
+}
+
+type TrainerCalendars {
+  id: String!
+  summary: String!
+}
+
+type TrainerId {
+  userId: ID!
+}
+
+type TrainersAvailability @aws_api_key {
+  availability: [AvailabilityStats]
+  trainerId: ID!
+}
+
+type User implements Node @aws_api_key @aws_cognito_user_pools {
+  avatar: AWSURL
+  email: AWSEmail!
+  id: ID!
+  name: String!
+  nodeId: ID!
+}
+
+enum Language {
+  DA
+  EN
+}
+
+enum ParticipantStatus {
+  activated
+  created
+  unenrolled
+}
+
+enum ParticipantType {
+  B2B
+  B2C
+  Exec
+  Free
+  Trial
+}
+
+enum PhoneOS {
+  Android
+  iOS
+}
+
+enum RepeatType {
+  daily
+  once
+  weekly
+}
+
+enum SessionStatus {
+  complete
+  deleted
+  noshow
+}
+
+input CardSignupInput {
+  comment: String
+  currency: String!
+  email: AWSEmail!
+  language: String!
+  name: String!
+  tel: String!
+  trainerId: ID!
+  vat: String
+}
+
+input CompanyInput {
+  comments: String
+  endsOn: AWSDateTime
+  id: ID
+  name: String!
+}
+
+input GroupInput {
+  comments: String
+  companyId: ID!
+  id: ID
+  name: String!
+  trainerId: ID!
+}
+
+input GroupSessionCreateInput {
+  comments: String
+  duration: Int!
+  groupId: ID!
+  start: AWSDateTime!
+}
+
+input GroupSessionUpdateInput {
+  comments: String
+  duration: Int!
+  id: ID!
+  start: AWSDateTime!
+}
+
+input InvoiceSignupInput {
+  address: String!
+  comment: String
+  company: String!
+  currency: String!
+  email: AWSEmail!
+  language: String!
+  name: String!
+  tel: String!
+  trainerId: ID!
+  vat: String
+}
+
+input ParticipantCreateInput {
+  companyId: ID
+  email: AWSEmail!
+  groupId: ID
+  language: Language
+  name: String!
+  note: String
+  phoneOS: PhoneOS
+  status: ParticipantStatus
+  subscriptionLength: Int
+  tel: String
+  trainerId: ID!
+  type: ParticipantType
+  vatCode: String
+}
+
+input ParticipantUpdateAsParticipantInput {
+  avatar: AWSURL
+  email: AWSEmail
+  name: String
+  possibilities: String
+  statusQuo: String
+  tel: String
+  traitName: String
+  vatCode: String
+  vision: [String]
+}
+
+input ParticipantUpdateInput {
+  companyId: ID
+  email: AWSEmail!
+  groupId: ID
+  language: Language
+  name: String!
+  note: String
+  phoneOS: PhoneOS
+  status: ParticipantStatus!
+  subscriptionLength: Int
+  tel: String!
+  trainerId: ID!
+  type: ParticipantType
+  userId: ID!
+  vatCode: String
+}
+
+input TrainerInput {
+  airtable: String
+  background: String
+  calendars: [String]
+  email: AWSEmail!
+  facetimeId: String
+  keywords: [String]
+  languages: [String]
+  name: String!
+  skypeId: String
+  tel: String
+  timezone: Int
+  userId: ID
+}

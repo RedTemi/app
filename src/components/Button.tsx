@@ -13,8 +13,8 @@ import {
 } from 'react-native';
 
 import Row from '@Components/Row';
-import { AppStartScreen, Screen } from '@Screens/index';
-import getStyles from '@Styles/button';
+import { AppStartScreen, Screen } from '../screens/index';
+import getStyles from '../style/button';
 import { IconSize } from '@Utils/types';
 
 export enum ButtonVariant {

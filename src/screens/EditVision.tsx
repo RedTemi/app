@@ -1,14 +1,14 @@
 import { useQuery, useMutation } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { ParticipantDetailsDocument, ParticipantUpdateAsParticipantDocument } from '@Graphql/types.generated';
-import onError from '@Lib/errorHandler';
+import { ParticipantDetailsDocument, ParticipantUpdateAsParticipantDocument } from '../graphql/types.generated';
+import onError from '../lib/errorHandler';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, TextInput } from 'react-native';
 
 import MeEdit from '@Components/MeEdit';
-import useHeaderSave from '@Hooks/headerButton';
-import { Screen } from '@Screens/index';
+import useHeaderSave from '../hooks/headerButton';
+import { Screen } from '../screens/index';
 
 const maxLength = 500;
 

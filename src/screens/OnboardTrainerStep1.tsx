@@ -7,9 +7,9 @@ import Button from '@Components/Button';
 import ProgressDots, { ProgressDotVariant } from '@Components/ProgressDots';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { useSessionBookTime } from '@Context/SessionBookTimeContext';
-import useTrainerInfo from '@Hooks/trainer';
-import { Screen } from '@Screens/index';
+import { useSessionBookTime } from '../context/SessionBookTimeContext';
+import useTrainerInfo from '../hooks/trainer';
+import { Screen } from '../screens/index';
 
 const OnboardTrainerStep1 = () => {
   const { name, avatar } = useTrainerInfo();

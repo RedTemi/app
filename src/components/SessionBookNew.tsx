@@ -5,8 +5,8 @@ import { TouchableOpacity, Image } from 'react-native';
 
 import Typography, { TypographyVariant } from '@Components/Typography';
 import ArrowImages from '@Images/arrows';
-import { Screen } from '@Screens/index';
-import style from '@Styles/Session';
+import { Screen } from '../screens/index';
+import style from '../style/Session';
 
 const { boxTitle, boxArrow } = style;
 

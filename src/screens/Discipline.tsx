@@ -1,8 +1,8 @@
 import { useMutation } from '@apollo/client';
 import ColorPalette, { Color } from '@Constants/colors';
 import disciplines from '@Constants/disciplines';
-import { ParticipantUpdateAsParticipantDocument } from '@Graphql/types.generated';
-import { captureException } from '@Lib/sentry';
+import { ParticipantUpdateAsParticipantDocument } from '../graphql/types.generated';
+import { captureException } from '../lib/sentry';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useLayoutEffect, useMemo } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
@@ -13,7 +13,7 @@ import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
 import { DisciplineScreenProp } from '@Navigation/NavMain';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 export type DisciplineScreenParams = {
   discipline: keyof typeof disciplines;

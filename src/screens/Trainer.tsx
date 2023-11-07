@@ -7,8 +7,8 @@ import Button from '@Components/Button';
 import ProgressDots, { ProgressDotVariant } from '@Components/ProgressDots';
 import SafeArea from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import useTrainerInfo from '@Hooks/trainer';
-import { Screen } from '@Screens/index';
+import useTrainerInfo from '../hooks/trainer';
+import { Screen } from '../screens/index';
 
 const Trainer = () => {
   const { avatar } = useTrainerInfo();

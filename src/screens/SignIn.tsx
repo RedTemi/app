@@ -10,10 +10,10 @@ import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import SupportLink from '@Components/SupportLink';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import useAuth from '@Hooks/auth';
-import { AppStartScreen, Screen } from '@Screens/index';
-import style from '@Styles/auth';
-import loaderStyle from '@Styles/Loader';
+import useAuth from '../hooks/auth';
+import { AppStartScreen, Screen } from '../screens/index';
+import style from '../style/auth';
+import loaderStyle from '../style/Loader';
 
 const SignIn = () => {
   const {

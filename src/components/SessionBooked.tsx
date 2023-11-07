@@ -1,5 +1,5 @@
 import ColorPalette from '@Constants/colors';
-import { dayMonth, time } from '@Lib/date';
+import { dayMonth, time } from '../lib/date';
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 

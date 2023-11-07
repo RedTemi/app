@@ -1,11 +1,11 @@
 import { useMutation } from '@apollo/client';
-import { MessageAddAsParticipantDocument } from '@Graphql/types.generated';
-import errorHandler from '@Lib/errorHandler';
+import { MessageAddAsParticipantDocument } from '../graphql/types.generated';
+import errorHandler from '../lib/errorHandler';
 import React, { useState } from 'react';
 import { TextInput, Text, TouchableOpacity, Keyboard } from 'react-native';
 
 import Row from '@Components/Row';
-import style from '@Styles/Messages';
+import style from '../style/Messages';
 
 const maxLength = 140;
 

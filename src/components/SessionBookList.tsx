@@ -2,7 +2,7 @@ import React, { Dispatch, memo, SetStateAction } from 'react';
 import { View } from 'react-native';
 
 import SessionBookItem from '@Components/SessionBookItem';
-import { DateDisplayed, TimeToCancel } from '@Screens/SessionBook';
+import { DateDisplayed, TimeToCancel } from '../screens/SessionBook';
 
 interface SessionBookListProps {
   list?: DateDisplayed[];

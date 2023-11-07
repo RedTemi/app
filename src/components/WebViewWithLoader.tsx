@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, ActivityIndicator, StyleProp, ViewStyle } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-import loaderStyle from '@Styles/Loader';
+import loaderStyle from '../style/Loader';
 
 interface WebViewProps {
   source: { uri: string };

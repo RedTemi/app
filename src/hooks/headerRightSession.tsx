@@ -5,8 +5,8 @@ import React, { useEffect } from 'react';
 import { Alert } from 'react-native';
 
 import HeaderRightDots from '@Components/HeaderRightDots';
-import useSessionDisable from '@Hooks/sessionDisable';
-import { Screen } from '@Screens/index';
+import useSessionDisable from '../hooks/sessionDisable';
+import { Screen } from '../screens/index';
 
 const actionSheetConfig = {
   options: ['Reschedule session', 'Delete session', 'Cancel'],

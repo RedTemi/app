@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { ParticipantSettingsDocument } from '@Graphql/types.generated';
+import { ParticipantSettingsDocument } from '../graphql/types.generated';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback, useState } from 'react';
 import { View } from 'react-native';
@@ -12,7 +12,7 @@ import ProgressDots, { ProgressDotVariant } from '@Components/ProgressDots';
 import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const OnboardPhoto = () => {
   const { navigate } = useNavigation();

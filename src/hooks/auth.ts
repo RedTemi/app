@@ -1,13 +1,13 @@
 import Auth from '@aws-amplify/auth';
-import sentryErrorHandler from '@Lib/errorHandler';
+import sentryErrorHandler from '../lib/errorHandler';
 import { useNavigation } from '@react-navigation/native';
 import { useState, useEffect, useCallback, SetStateAction } from 'react';
 import { Alert } from 'react-native';
 import Smartlook from 'react-native-smartlook-analytics';
 
-import { useAuthContext } from '@Context/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
 import { alreadyNavigated } from '@Navigation/linking';
-import { AppStartScreen } from '@Screens/index';
+import { AppStartScreen } from '../screens/index';
 
 interface User {
   sub: string;

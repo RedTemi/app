@@ -3,8 +3,8 @@ import React from 'react';
 import { TouchableOpacity, Image, View, Text } from 'react-native';
 
 import Images from '@Images/index';
-import { Screen } from '@Screens/index';
-import style from '@Styles/Tool';
+import { Screen } from '../screens/index';
+import style from '../style/Tool';
 
 const boxes = {
   note: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 
 import Checkmark from '@Components/IconComponents/Checkmark';
-import getStyles from '@Styles/CheckCircle';
+import getStyles from '../../style/CheckCircle';
 
 interface CheckCircleProps {
   checked: boolean;

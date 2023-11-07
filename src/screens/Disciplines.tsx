@@ -5,7 +5,7 @@ import React from 'react';
 import { SafeAreaView, TouchableOpacity, View } from 'react-native';
 
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 interface DisciplineEntry {
   backgroundColor: Color;

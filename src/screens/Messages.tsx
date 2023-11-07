@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import Colors from '@Constants/colors';
 import { DevicePlatform } from '@Constants/global';
-import { MessageListDocument, MessageListQuery } from '@Graphql/types.generated';
+import { MessageListDocument, MessageListQuery } from '../graphql/types.generated';
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
@@ -12,7 +12,7 @@ import Messenger from '@Components/Messenger';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import ScrollViewRefresh from '@Components/ScrollViewRefresh';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import style from '@Styles/Messages';
+import style from '../style/Messages';
 
 const { container, headerAvatar, headerStyle, headerTitle } = style;
 

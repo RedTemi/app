@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { ParticipantDetailsDocument, ParticipantDetailsQuery } from '@Graphql/types.generated';
+import { ParticipantDetailsDocument, ParticipantDetailsQuery } from '../graphql/types.generated';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { TouchableOpacity, View } from 'react-native';
@@ -16,7 +16,7 @@ import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import ScrollViewRefresh from '@Components/ScrollViewRefresh';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const Me = () => {
   const {

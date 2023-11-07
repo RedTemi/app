@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { HomeDocument, HomeQuery } from '@Graphql/types.generated';
-import { sortByCreatedAtDesc } from '@Lib/array';
-import { storageGet, StorageKey } from '@Lib/storage';
+import { HomeDocument, HomeQuery } from '../graphql/types.generated';
+import { sortByCreatedAtDesc } from '../lib/array';
+import { storageGet, StorageKey } from '../lib/storage';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect } from 'react';
 import { Alert, Image, ScrollView, View } from 'react-native';
@@ -13,11 +13,11 @@ import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import SessionNext from '@Components/SessionNext';
 import TaskContainer from '@Components/TaskContainer';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import useHeaderScroll from '@Hooks/headerScroll';
+import useHeaderScroll from '../hooks/headerScroll';
 import Images from '@Images/index';
-import { Screen } from '@Screens/index';
-import StylesHome from '@Styles/Home';
-import StylesLogo from '@Styles/Logo';
+import { Screen } from '../screens/index';
+import StylesHome from '../style/Home';
+import StylesLogo from '../style/Logo';
 
 const Home = () => {
   const { style: headerStyle, headerScrollPct, handleScroll } = useHeaderScroll(0.75);

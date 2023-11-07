@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 
 import HeaderRightDots from '@Components/HeaderRightDots';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const actionSheetConfig = {
   options: ['Edit', 'Cancel'],

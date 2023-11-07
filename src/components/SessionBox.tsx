@@ -1,6 +1,6 @@
 import ColorPalette from '@Constants/colors';
-import { Session } from '@Graphql/types.generated';
-import { formatDayMonth, formatHoursMinutes } from '@Lib/date';
+import { Session } from '../graphql/types.generated';
+import { formatDayMonth, formatHoursMinutes } from '../lib/date';
 import { useNavigation } from '@react-navigation/native';
 import { addMinutes } from 'date-fns';
 import React from 'react';
@@ -9,7 +9,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Row from '@Components/Row';
 import Typography, { TypographyVariant } from '@Components/Typography';
 import ArrowRight from '@Icons/arrow-right.svg';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 import { isDefined } from '@Utils/types';
 
 export enum SessionBoxVariant {

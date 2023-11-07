@@ -4,8 +4,8 @@ import {
   ParticipantSettingsDocument,
   ParticipantSettingsQuery,
   ParticipantUpdateAsParticipantDocument,
-} from '@Graphql/types.generated';
-import userInfo from '@Lib/userinfo';
+} from '../graphql/types.generated';
+import userInfo from '../lib/userinfo';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -14,8 +14,8 @@ import Avatar from '@Components/Avatar';
 import Input, { InputVariant } from '@Components/Input';
 import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
-import useHeaderSave from '@Hooks/headerButton';
-import { Screen } from '@Screens/index';
+import useHeaderSave from '../hooks/headerButton';
+import { Screen } from '../screens/index';
 
 const EditSettings = () => {
   const { navigate } = useNavigation();

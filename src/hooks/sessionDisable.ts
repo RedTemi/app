@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import { SessionDisableMutation, SessionDisableDocument } from '@Graphql/types.generated';
+import { SessionDisableMutation, SessionDisableDocument } from '../graphql/types.generated';
 
 const useSessionDisable = (id: string) => {
   const [sessionDisable] = useMutation<SessionDisableMutation>(SessionDisableDocument);

@@ -11,7 +11,7 @@ import { KeyboardTypeOptions } from 'react-native';
 
 import Cell from '@Components/Cell';
 import Row from '@Components/Row';
-import getStyles from '@Styles/Input';
+import getStyles from '../style/Input';
 
 export enum InputVariant {
   spacy = 'spacy',

@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { Session, SessionsNextQuery, SessionsScreenDocument, SessionsScreenQuery } from '@Graphql/types.generated';
-import { sortByStartDesc } from '@Lib/array';
+import { Session, SessionsNextQuery, SessionsScreenDocument, SessionsScreenQuery } from '../graphql/types.generated';
+import { sortByStartDesc } from '../lib/array';
 import { useFocusEffect, useRoute } from '@react-navigation/native';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -15,7 +15,7 @@ import SessionCycleDivider from '@Components/SessionCycleDivider';
 import SessionPlaceholderBox from '@Components/SessionPlaceholderBox';
 import Typography, { TypographyVariant } from '@Components/Typography';
 import { SessionsTabNavProp } from '@Navigation/Tab';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 import { isDefined } from '@Utils/types';
 import { getCycleNo, getNextSession } from '@Utils/utils';
 

@@ -7,7 +7,7 @@ import Cell from '@Components/Cell';
 import ArrowRight from '@Components/IconComponents/ArrowRightIcon';
 import Row from '@Components/Row';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import getStyles from '@Styles/ButtonBox';
+import getStyles from '../style/ButtonBox';
 
 interface ButtonBoxProps {
   title: string;

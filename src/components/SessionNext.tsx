@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import SessionList from '@Graphql/session_next.graphql';
-import { SessionsNextQuery } from '@Graphql/types.generated';
-import { dayMonthShort, time, addMinutes } from '@Lib/date';
+import SessionList from '../graphql/session_next.graphql';
+import { SessionsNextQuery } from '../graphql/types.generated';
+import { dayMonthShort, time, addMinutes } from '../lib/date';
 import { useNavigation } from '@react-navigation/native';
 import React, { useMemo } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
@@ -10,8 +10,8 @@ import { TouchableOpacity, Image } from 'react-native';
 import SessionBookNew from '@Components/SessionBookNew';
 import Typography, { TypographyVariant } from '@Components/Typography';
 import ArrowImages from '@Images/arrows';
-import { Screen } from '@Screens/index';
-import style from '@Styles/Session';
+import { Screen } from '../screens/index';
+import style from '../style/Session';
 import { getNextSession } from '@Utils/utils';
 
 const { boxTitle, boxArrow } = style;

@@ -2,11 +2,11 @@ import { NavigationContainer, NavigationContainerRef } from '@react-navigation/n
 import React, { useRef } from 'react';
 import Smartlook from 'react-native-smartlook-analytics';
 
-import linking from '@Navigation/linking';
-import NavSwitch from '@Navigation/NavSwitch';
+import linking from '../navigation/linking';
+import NavSwitch from '../navigation/NavSwitch';
 
 const NavContainer = () => {
-  const navigationRef = useRef<NavigationContainerRef | null>(null);
+  const navigationRef = useRef<NavigationContainerRef>(null);
   const routeNameRef = useRef<string | null>(null);
 
   const getCurrentRouteName = () => {
@@ -19,6 +19,7 @@ const NavContainer = () => {
     }
     return null;
   };
+
 
   const onReady = () => {
     routeNameRef.current = getCurrentRouteName();

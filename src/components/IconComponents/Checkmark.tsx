@@ -1,8 +1,8 @@
-import ColorPalette, { Color } from '@Constants/colors';
+import ColorPalette, { Color } from '../../constants/colors';
 import React from 'react';
 import { Path } from 'react-native-svg';
 
-import Svg from '@Components/Svg';
+import Svg from '../../components/Svg';
 import { IconSize } from '@Utils/types';
 
 interface CheckmarkProps {

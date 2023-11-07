@@ -5,8 +5,8 @@ import {
   SessionDisableDocument,
   SessionsBookScreenDocument,
   SessionsBookScreenQuery,
-} from '@Graphql/types.generated';
-import { dayMonth, formatYearMonthDay, ISOFormat, tomorrow } from '@Lib/date';
+} from '../graphql/types.generated';
+import { dayMonth, formatYearMonthDay, ISOFormat, tomorrow } from '../lib/date';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import { format, getTime, parseISO, startOfMonth } from 'date-fns';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
@@ -19,10 +19,10 @@ import Loader from '@Components/Loader';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import SessionBookList from '@Components/SessionBookList';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { useSessionBookTime } from '@Context/SessionBookTimeContext';
-import useAvailability from '@Hooks/availability';
+import { useSessionBookTime } from '../context/SessionBookTimeContext';
+import useAvailability from '../hooks/availability';
 import { SessionBookScreenProp } from '@Navigation/NavMain';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 export type SessionBookScreenParams = {
   sessionStart: string;

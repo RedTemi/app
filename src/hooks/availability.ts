@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { SessionBookDataQuery, SessionBookDataDocument } from '@Graphql/types.generated';
+import { SessionBookDataQuery, SessionBookDataDocument } from '../graphql/types.generated';
 import { getDaysInMonth } from 'date-fns';
 import { useMemo } from 'react';
 

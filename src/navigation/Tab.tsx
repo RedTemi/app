@@ -7,13 +7,13 @@ import React from 'react';
 
 import TabBarIconImage from '@Components/ImageComponents/TabBarIconImage';
 import { optionsWithHeader } from '@Navigation/NavMain';
-import Home from '@Screens/Home';
-import { Screen } from '@Screens/index';
-import Journal from '@Screens/Journal';
-import Me from '@Screens/Me';
-import Session from '@Screens/Session';
-import Sessions from '@Screens/Sessions';
-import Tools from '@Screens/Tools';
+import Home from '../screens/Home';
+import { Screen } from '../screens/index';
+import Journal from '../screens/Journal';
+import Me from '../screens/Me';
+import Session from '../screens/Session';
+import Sessions from '../screens/Sessions';
+import Tools from '../screens/Tools';
 
 const { inactiveTintColor, activeTintColor } = ColorPalette;
 

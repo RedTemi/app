@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import { KeyboardAvoidingView, ScrollView, TextInput, View } from 'react-native';
 
 import Typography, { TypographyVariant } from '@Components/Typography';
-import useFocuscheckEdit from '@Hooks/focusCheckEdit';
-import useHeaderButton from '@Hooks/headerButton';
-import { Screen } from '@Screens/index';
-import style from '@Styles/FocusCheckEditStyles';
+import useFocuscheckEdit from '../hooks/focusCheckEdit';
+import useHeaderButton from '../hooks/headerButton';
+import { Screen } from '../screens/index';
+import style from '../style/FocusCheckEditStyles';
 
 const { containerQ, header, content, title, pretitle, question, answer, nextButton } = style;
 

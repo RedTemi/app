@@ -1,14 +1,14 @@
 import { useMutation } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { StatusQuoAddDocument, StatusQuoUpdateDocument } from '@Graphql/types.generated';
+import { StatusQuoAddDocument, StatusQuoUpdateDocument } from '../graphql/types.generated';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 
 import MeEdit from '@Components/MeEdit';
-import useHeaderSave from '@Hooks//headerButton';
+import useHeaderSave from '../hooks//headerButton';
 import { EditStatusQuoScreenProp } from '@Navigation/NavMain';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const maxLength = 500;
 

@@ -1,12 +1,12 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
-import NavMain from '@Navigation/NavMain';
-import { AppStartScreen } from '@Screens/index';
-import Auth from '@Screens/SignIn';
-import Start from '@Screens/Start';
-import Support from '@Screens/Support';
-import navStyleOptions from '@Styles/NavMain';
+import NavMain from '../navigation/NavMain';
+import { AppStartScreen } from '../screens/index';
+import Auth from '../screens/SignIn';
+import Start from '../screens/Start';
+import Support from '../screens/Support';
+import navStyleOptions from '../style/NavMain';
 
 const screenOptions = {
   headerShown: false,

@@ -4,8 +4,8 @@ import { View } from 'react-native';
 import CountryPicker, { Country } from 'react-native-country-picker-modal';
 import TextInputMask from 'react-native-text-input-mask';
 
-import ColorPalette from '../constants/colors';
-import countryMobileCodes from '../constants/countryMobileCodes';
+import ColorPalette from '@Constants/colors';
+import countryMobileCodes from '@Constants/countryMobileCodes';
 
 enum Mask {
   US = '{+} [0] ([000])-[000]-[00]-[00]',

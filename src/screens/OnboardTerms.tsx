@@ -1,5 +1,5 @@
 import ColorPalette from '@Constants/colors';
-import { StorageKey, storageSet } from '@Lib/storage';
+import { StorageKey, storageSet } from '../lib/storage';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
@@ -10,8 +10,8 @@ import Checkmark from '@Components/IconComponents/Checkmark';
 import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { useSessionBookTime } from '@Context/SessionBookTimeContext';
-import { Screen } from '@Screens/index';
+import { useSessionBookTime } from '../context/SessionBookTimeContext';
+import { Screen } from '../screens/index';
 
 const OnboardTerms = () => {
   const { navigate } = useNavigation();

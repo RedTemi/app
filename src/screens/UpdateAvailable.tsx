@@ -3,10 +3,10 @@ import { Linking, Platform, View } from 'react-native';
 
 import Row from '@Components/Row';
 
-import Button from '../components/button';
-import SafeArea, { SafeAreaSize } from '../components/safearea';
-import Typography, { TypographyVariant } from '../components/typography';
-import { DevicePlatform } from '../constants/global';
+import Button from '@Components/button';
+import SafeArea, { SafeAreaSize } from '@Components/safearea';
+import Typography, { TypographyVariant } from '@Components/typography';
+import { DevicePlatform } from '@Constants/global';
 
 const UpdateAvailableScreen = () => {
   const isIOS = Platform.OS === DevicePlatform.ios;

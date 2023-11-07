@@ -1,10 +1,10 @@
 import Auth from '@aws-amplify/auth';
-import errorHandler from '@Lib/errorHandler';
+import errorHandler from '../lib/errorHandler';
 import { useNavigation } from '@react-navigation/native';
 import { useCallback, useEffect } from 'react';
 
-import { useAuthContext } from '@Context/AuthContext';
-import { AppStartScreen } from '@Screens/index';
+import { useAuthContext } from '../context/AuthContext';
+import { AppStartScreen } from '../screens/index';
 
 const SignOut = () => {
   const { setIsLoggedIn } = useAuthContext();

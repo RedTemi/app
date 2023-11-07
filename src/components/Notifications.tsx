@@ -3,13 +3,13 @@ import { MutationTuple } from '@apollo/client/react/types/types';
 import {
   ParticipantSetExponentPushTokenDocument,
   ParticipantSetExponentPushTokenMutation,
-} from '@Graphql/types.generated';
-import { captureException } from '@Lib/sentry';
+} from '../graphql/types.generated';
+import { captureException } from '../lib/sentry';
 import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 import { useEffect } from 'react';
 import PushNotification, { PushNotificationObject } from 'react-native-push-notification';
 
-import { useAuthContext } from '@Context/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
 
 import sentryErrorHandler from '../lib/errorHandler';
 

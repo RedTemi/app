@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
-import { ParticipantSettingsDocument } from '@Graphql/types.generated';
-import { monthYear } from '@Lib/date';
-import userInfo from '@Lib/userinfo';
+import { ParticipantSettingsDocument } from '../graphql/types.generated';
+import { monthYear } from '../lib/date';
+import userInfo from '../lib/userinfo';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useCallback, useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -12,7 +12,7 @@ import ButtonBox from '@Components/ButtonBox';
 import Row from '@Components/Row';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 import { version } from '../../package.json';
 

@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { ParticipantTrainerDocument, ParticipantTrainerQuery } from '@Graphql/types.generated';
+import { ParticipantTrainerDocument, ParticipantTrainerQuery } from '../graphql/types.generated';
 
 const useTrainerInfo = () => {
   const {

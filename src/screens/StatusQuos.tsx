@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { ParticipantDetailsDocument, ParticipantDetailsQuery } from '@Graphql/types.generated';
+import { ParticipantDetailsDocument, ParticipantDetailsQuery } from '../graphql/types.generated';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { View } from 'react-native';
@@ -10,7 +10,7 @@ import SafeArea from '@Components/SafeArea';
 import ScrollViewRefresh from '@Components/ScrollViewRefresh';
 import StatusQuoListItem from '@Components/StatusQuoListItem';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const StatusQuos = () => {
   const {

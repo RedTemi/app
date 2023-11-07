@@ -3,11 +3,11 @@ import {
   FocuscheckAddAsParticipantDocument,
   FocuscheckGetAsParticipantDocument,
   FocuscheckUpdateAsParticipantDocument,
-} from '@Graphql/types.generated';
+} from '../graphql/types.generated';
 import { useNavigation } from '@react-navigation/native';
 import { SetStateAction, useEffect, useState } from 'react';
 
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const useFocuscheckEdit = (nodeId: string | null, name: string, isNextButtonPressed: boolean) => {
   const { data: { focuscheckGetAsParticipant = {} } = {} } = useQuery(FocuscheckGetAsParticipantDocument, {

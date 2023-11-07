@@ -4,7 +4,7 @@ import {
   TaskAsParticipantDocument,
   TaskCloseAsParticipantDocument,
   TaskOpenAsParticipantDocument,
-} from '@Graphql/types.generated';
+} from '../graphql/types.generated';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
@@ -16,8 +16,8 @@ import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
 import Images from '@Images/index';
 import { TaskScreenProp } from '@Navigation/NavMain';
-import { Screen } from '@Screens/index';
-import getStyles from '@Styles/TaskCheckbox';
+import { Screen } from '../screens/index';
+import getStyles from '../style/TaskCheckbox';
 
 export type TaskScreenParams = {
   nodeId: string;

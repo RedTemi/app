@@ -1,11 +1,11 @@
 import { useMutation } from '@apollo/client';
 import { useActionSheet } from '@expo/react-native-action-sheet';
-import { FocuscheckDeleteDocument } from '@Graphql/types.generated';
+import { FocuscheckDeleteDocument } from '../graphql/types.generated';
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 
 import HeaderRightDots from '@Components/HeaderRightDots';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const actionSheetConfig = {
   options: ['Edit', 'Delete', 'Cancel'],

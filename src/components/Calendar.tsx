@@ -1,4 +1,4 @@
-import { formatDateWithTZ, formatYearMonth, ISOFormat, tomorrowWithTimeZone, yearMonthDayFormat } from '@Lib/date';
+import { formatDateWithTZ, formatYearMonth, ISOFormat, tomorrowWithTimeZone, yearMonthDayFormat } from '../lib/date';
 import { startOfMonth, endOfMonth, format } from 'date-fns';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
@@ -7,7 +7,7 @@ import { BasicDayProps } from 'react-native-calendars/src/calendar/day/basic';
 import { MarkingProps } from 'react-native-calendars/src/calendar/day/marking';
 import { DateData, DayState } from 'react-native-calendars/src/types';
 
-import ColorPalette from '../constants/colors';
+import ColorPalette from '@Constants/colors';
 
 export interface CalendarMarkedDateProps {
   [key: string]: MarkingProps;

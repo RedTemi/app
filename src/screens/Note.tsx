@@ -1,15 +1,15 @@
 import { useQuery } from '@apollo/client';
 import ColorPalette from '@Constants/colors';
-import { NoteAsParticipantDocument } from '@Graphql/types.generated';
-import titleAndBody from '@Lib/titlebody';
+import { NoteAsParticipantDocument } from '../graphql/types.generated';
+import titleAndBody from '../lib/titlebody';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useMemo } from 'react';
 import { ScrollView } from 'react-native';
 
 import SafeArea from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import useFocusRefetch from '@Hooks/focus-refetch';
-import useHeaderRight from '@Hooks/headerRightNote';
+import useFocusRefetch from '../hooks/focus-refetch';
+import useHeaderRight from '../hooks/headerRightNote';
 import { NoteScreenProp } from '@Navigation/NavMain';
 
 export type NoteScreenParams = {

@@ -6,8 +6,8 @@ import { manipulateAsync, FlipType, SaveFormat } from 'expo-image-manipulator';
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 
-import useImgPicker from '@Hooks/imagePicker';
-import useUpload from '@Hooks/imageUpload';
+import useImgPicker from '../hooks/imagePicker';
+import useUpload from '../hooks/imageUpload';
 import { CameraScreenProp } from '@Navigation/NavMain';
 
 export type CameraScreenParams = {

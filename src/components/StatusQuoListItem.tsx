@@ -1,5 +1,5 @@
-import { StatusQuo } from '@Graphql/types.generated';
-import { yearMonthDay } from '@Lib/date';
+import { StatusQuo } from '../graphql/types.generated';
+import { yearMonthDay } from '../lib/date';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
@@ -7,7 +7,7 @@ import { TouchableOpacity } from 'react-native';
 import Cell from '@Components/Cell';
 import ArrowRight from '@Components/IconComponents/ArrowRightIcon';
 import Row from '@Components/Row';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 import styles from '../style/statusQuoListItem';
 

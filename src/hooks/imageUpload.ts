@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from '@apollo/client';
-import { UpdateAvatarDocument, GetSignedUrlDocument } from '@Graphql/types.generated';
+import { UpdateAvatarDocument, GetSignedUrlDocument } from '../graphql/types.generated';
 import { useFocusEffect } from '@react-navigation/native';
 import { useState, useEffect, useCallback } from 'react';
 

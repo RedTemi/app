@@ -8,8 +8,8 @@ import Button from '@Components/Button';
 import ProgressDots, { ProgressDotVariant } from '@Components/ProgressDots';
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import useTrainerInfo from '@Hooks/trainer';
-import { Screen } from '@Screens/index';
+import useTrainerInfo from '../hooks/trainer';
+import { Screen } from '../screens/index';
 
 const OnboardTrainerStep2 = () => {
   const { avatar, name } = useTrainerInfo();

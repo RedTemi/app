@@ -1,9 +1,9 @@
-import { dayMonthWeekday } from '@Lib/date';
+import { dayMonthWeekday } from '../lib/date';
 import React, { memo } from 'react';
 import { View } from 'react-native';
 
 import Typography, { TypographyVariant } from '@Components/Typography';
-import style from '@Styles/SessionBook';
+import style from '../style/SessionBook';
 
 const SessionBookHeader = ({ start }: { start: string }) => {
   return (

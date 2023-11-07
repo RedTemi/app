@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StyleProp, ViewStyle } from 'react-native';
 
-import getStyles from '@Styles/SafeArea';
+import getStyles from '../style/SafeArea';
 
 export enum SafeAreaSize {
   xs = 'xs',

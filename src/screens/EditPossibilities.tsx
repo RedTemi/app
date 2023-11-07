@@ -1,12 +1,12 @@
 import { useQuery, useMutation } from '@apollo/client';
-import { ParticipantUpdateAsParticipantDocument, ParticipantDetailsDocument } from '@Graphql/types.generated';
+import { ParticipantUpdateAsParticipantDocument, ParticipantDetailsDocument } from '../graphql/types.generated';
 import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 
 import MeEdit from '@Components/MeEdit';
-import useHeaderSave from '@Hooks/headerButton';
-import { Screen } from '@Screens/index';
+import useHeaderSave from '../hooks/headerButton';
+import { Screen } from '../screens/index';
 
 const maxLength = 500;
 

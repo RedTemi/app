@@ -1,5 +1,5 @@
-import { setUser } from '@Lib/sentry';
-import userInfo from '@Lib/userinfo';
+import { setUser } from '../lib/sentry';
+import userInfo from '../lib/userinfo';
 import { useEffect } from 'react';
 
 const useSentryUser = () => {

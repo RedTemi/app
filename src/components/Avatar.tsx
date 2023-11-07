@@ -5,7 +5,7 @@ import { ActivityIndicator, TouchableOpacity, Image, ViewStyle, ImageURISource }
 
 import Camera from '@Components/IconComponents/Camera';
 import Row from '@Components/Row';
-import getStyles from '@Styles/Avatar';
+import getStyles from '../style/Avatar';
 
 const getImageSource = (src: ImageURISource) => {
   if (!src.uri) {

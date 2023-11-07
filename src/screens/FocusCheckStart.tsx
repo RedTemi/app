@@ -4,8 +4,8 @@ import { View } from 'react-native';
 
 import Button from '@Components/Button';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '@Screens/index';
-import style from '@Styles/FocusCheckEditStyles';
+import { Screen } from '../screens/index';
+import style from '../style/FocusCheckEditStyles';
 
 const FocusCheckStart = () => {
   return (

@@ -5,7 +5,7 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import Row from '@Components/Row';
 import Typography from '@Components/Typography';
-import { Screen } from '@Screens/index';
+import { Screen } from '../screens/index';
 
 const SessionPlaceholderBox = ({ sessionNo, hasVerticalLine }: { sessionNo: number; hasVerticalLine: boolean }) => {
   const { navigate } = useNavigation();

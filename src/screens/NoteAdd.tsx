@@ -1,15 +1,15 @@
 import { useMutation } from '@apollo/client';
-import NOTE_ADD_AS_PARTICIPANT from '@Graphql/note_add_as_participant.graphql';
-import NOTE_UPDATE_AS_PARTICIPANT from '@Graphql/note_update_as_participant.graphql';
-import errorHandler from '@Lib/errorHandler';
+import NOTE_ADD_AS_PARTICIPANT from '../graphql/note_add_as_participant.graphql';
+import NOTE_UPDATE_AS_PARTICIPANT from '../graphql/note_update_as_participant.graphql';
+import errorHandler from '../lib/errorHandler';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { TextInput, View } from 'react-native';
 
 import SafeArea, { SafeAreaSize } from '@Components/SafeArea';
-import useHeaderSave from '@Hooks/headerButton';
-import { NoteAddScreenProp } from '@Navigation/NavMain';
-import { Screen } from '@Screens/index';
+import useHeaderSave from '../hooks/headerButton';
+import { NoteAddScreenProp } from '../navigation/NavMain';
+import { Screen } from '../screens/index';
 
 export type NoteAddScreenParams = { nodeId: string; serializedPayload: string };
 

@@ -1,6 +1,6 @@
 import ColorPalette from '@Constants/colors';
-import { Focuscheck, Session, Maybe, Scalars } from '@Graphql/types.generated';
-import { dayMonth } from '@Lib/date';
+import { Focuscheck, Session, Maybe, Scalars } from '../graphql/types.generated';
+import { dayMonth } from '../lib/date';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
@@ -9,7 +9,7 @@ import Cell from '@Components/Cell';
 import ArrowRight from '@Components/IconComponents/ArrowRightIcon';
 import Row from '@Components/Row';
 import Typography, { TypographyVariant } from '@Components/Typography';
-import styles from '@Styles/FeedListItem';
+import styles from '../style/FeedListItem';
 
 export interface FeedListItemProps {
   item:

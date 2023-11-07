@@ -3,7 +3,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 import Background from '@Components/Background';
-import getStyle from '@Styles/MessageBox';
+import getStyle from '../style/MessageBox';
 
 interface MessageBoxProps {
   isSender?: boolean;

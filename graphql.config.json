@@ -1,0 +1,6 @@
+{
+  "name": "Headlight Graphql Schema",
+  "schemaPath": "./schema.graphql",
+  "documents": "**/*.{graphql,js,ts,jsx,tsx}"
+}
+  

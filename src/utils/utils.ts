@@ -1,5 +1,5 @@
-import { SessionsNextQuery } from '@Graphql/types.generated';
-import { constructListWithDateProp, sortByStart } from '@Lib/array';
+import { SessionsNextQuery } from '../graphql/types.generated';
+import { constructListWithDateProp, sortByStart } from '../lib/array';
 
 export const getNextSession = (sessionList: SessionsNextQuery['sessionListAsParticipant'][number][]) => {
   const sessionListSorted = constructListWithDateProp(sessionList, 'start').sort(sortByStart);

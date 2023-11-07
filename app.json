@@ -17,6 +17,7 @@
       "backgroundColor": "#1029B9"
     },
     "updates": {
+      "enabled": false,
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
@@ -56,7 +57,9 @@
       ]
     },
     "plugins": [
-      "expo-tracking-transparency"
+      "expo-tracking-transparency",
+      "sentry-expo",
+      "expo-localization"
     ],
     "extra": {
       "eas": {
