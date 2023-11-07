@@ -1,6 +1,6 @@
 import { NavigationContainer, NavigationContainerRef } from '@react-navigation/native';
 import React, { useRef } from 'react';
-import Smartlook from 'react-native-smartlook-analytics';
+
 
 import linking from '../navigation/linking';
 import NavSwitch from '../navigation/NavSwitch';
@@ -28,10 +28,6 @@ const NavContainer = () => {
   const onStateChange = () => {
     const previousRouteName = routeNameRef.current;
     const currentRouteName = getCurrentRouteName();
-
-    if (currentRouteName && previousRouteName !== currentRouteName) {
-      Smartlook.instance.analytics.trackNavigationEnter(currentRouteName)
-    }
     routeNameRef.current = currentRouteName;
   };
 

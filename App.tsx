@@ -15,7 +15,7 @@ import Notifications from './src/components/Notifications';
 import { AuthProvider } from './src/context/AuthContext';
 import { SessionBookTimeProvider } from './src/context/SessionBookTimeContext';
 import useFontLoader from './src/hooks/fontLoader';
-import useTrackingConsent from './src/hooks/trackingConsent';
+// import useTrackingConsent from './src/hooks/trackingConsent';
 import NavContainer from './src/navigation/container';
 
 SplashScreen.preventAutoHideAsync();
@@ -41,7 +41,7 @@ export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   persistCacheInStorage();
 
-  useTrackingConsent();
+  // useTrackingConsent();
   const fontsLoaded = useFontLoader();
   useEffect(() => {
     async function prepare() {

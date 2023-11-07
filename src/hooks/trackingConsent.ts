@@ -3,24 +3,14 @@ import { requestTrackingPermissionsAsync, PermissionStatus } from 'expo-tracking
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
 import Config from 'react-native-config';
-import Smartlook from 'react-native-smartlook-analytics';
 
 
-const setupSmartLook = () => {
-  const smarlookApiKey =
-    process.env.APP_ENV === 'production' ? process.env.SMARTLOOK_API_KEY : Config.SMARTLOOK_API_KEY;
-
-  if (smarlookApiKey) {
-    Smartlook.instance.preferences.setProjectKey(smarlookApiKey)
-    Smartlook.instance.start()
-  }
-};
 
 const useTrackingConsent = () => {
   useEffect(() => {
     (async () => {
       if (Platform.OS !== DevicePlatform.ios) {
-        setupSmartLook();
+        // setupSmartLook();
         return;
       }
 
@@ -32,7 +22,7 @@ const useTrackingConsent = () => {
         const { status } = await requestTrackingPermissionsAsync();
 
         if (status === PermissionStatus.GRANTED) {
-          setupSmartLook();
+          // setupSmartLook();
         }
       }
     })();

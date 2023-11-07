@@ -3,7 +3,7 @@ import sentryErrorHandler from '../lib/errorHandler';
 import { useNavigation } from '@react-navigation/native';
 import { useState, useEffect, useCallback, SetStateAction } from 'react';
 import { Alert } from 'react-native';
-import Smartlook from 'react-native-smartlook-analytics';
+
 
 import { useAuthContext } from '../context/AuthContext';
 import { alreadyNavigated } from '@Navigation/linking';
@@ -79,8 +79,6 @@ const useAuth = () => {
     Auth.currentUserPoolUser({ bypassCache: true })
       .then(({ attributes }) => {
         setIsLoggedIn(Boolean(attributes?.sub));
-        Smartlook.instance.user.setUserProperty('uid', attributes?.sub);
-        Smartlook.instance.user.setEmail(attributes?.email);
 
         redirect();
       })
