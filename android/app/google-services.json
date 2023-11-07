@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "249640988005",
+    "project_id": "headlight-4df28",
+    "storage_bucket": "headlight-4df28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249640988005:android:3902b036d46363ada2058c",
+        "android_client_info": {
+          "package_name": "com.weareheadlight.app2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249640988005-bas1jg57jpdjulc4smukvhd1f0t25skr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoWNOxptQGK_Vu4iyrD7dVTGrxszd2EcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249640988005-bas1jg57jpdjulc4smukvhd1f0t25skr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

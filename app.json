@@ -35,12 +35,16 @@
         "EXUpdatesLaunchWaitMs": 15,
         "NSUserTrackingUsageDescription": "Allow this app to collect app-related data that can be used for tracking you or your device."
       },
+      "googleServicesFile": "./GoogleService-Info.plist",
       "bundleIdentifier": "com.weareheadlight.app2",
       "buildNumber": "2"
     },
     "android": {
       "package": "com.weareheadlight.app2",
-      "versionCode": 2270
+      "versionCode": 2270,
+      "googleServicesFile": "./google-services.json",
+      "minSdkVersion": 24,
+      "hermesEnabled": false
     },
     "description": "Headlight app v2",
     "githubUrl": "https://github.com/WeAreHeadlight/app2",
@@ -57,9 +61,10 @@
       ]
     },
     "plugins": [
-      "expo-tracking-transparency",
       "sentry-expo",
-      "expo-localization"
+      "expo-localization",
+      "expo-build-properties",
+      "expo-tracking-transparency"
     ],
     "extra": {
       "eas": {

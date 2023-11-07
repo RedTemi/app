@@ -85,7 +85,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.headlightcoaching"
+    namespace 'com.weareheadlight.app2'
     defaultConfig {
         applicationId 'com.weareheadlight.app2'
         minSdkVersion rootProject.ext.minSdkVersion
@@ -182,3 +182,5 @@ dependencies {
 
 apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json')"].execute(null, rootDir).text.trim(), "../native_modules.gradle");
 applyNativeModulesAppBuildGradle(project)
+
+apply plugin: 'com.google.gms.google-services'

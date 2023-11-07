@@ -1,0 +1,28 @@
+overwrite: true
+schema:
+  - schema.graphql
+  - appsync.graphql
+documents: "src/graphql/*.graphql"
+generates:
+  src/graphql/types.generated.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-document-nodes"
+    config:
+      maybeValue: T
+      avoidOptionals:
+        field: true
+        object: true
+      nameSuffix: 'Document'
+      fragmentSuffix: 'FragmentDoc'
+      scalars: 
+        AWSDate: string
+        AWSTime: string
+        AWSDateTime: string
+        AWSTimestamp: string
+        AWSEmail: string
+        AWSJSON: string
+        AWSURL: string
+        AWSPhone: string
+        AWSIPAddress: string
