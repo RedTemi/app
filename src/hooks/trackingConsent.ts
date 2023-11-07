@@ -1,10 +1,20 @@
-import { DevicePlatform } from '@Constants/global';
 import { requestTrackingPermissionsAsync, PermissionStatus } from 'expo-tracking-transparency';
 import { useEffect } from 'react';
 import { Platform } from 'react-native';
 import Config from 'react-native-config';
 
+import { DevicePlatform } from '../constants/global';
 
+const setupSmartLook = () => {
+  const smarlookApiKey =
+    process.env.APP_ENV === 'production' ? process.env.SMARTLOOK_API_KEY : Config.SMARTLOOK_API_KEY;
+
+  Smartlook.setup(smarlookApiKey);
+
+  Smartlook.setEventTrackingMode('IGNORE_NAVIGATION_INTERACTION');
+
+  Smartlook.startRecording();
+};
 
 const useTrackingConsent = () => {
   useEffect(() => {

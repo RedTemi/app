@@ -43,8 +43,6 @@
       "package": "com.weareheadlight.app2",
       "versionCode": 2270,
       "googleServicesFile": "./google-services.json",
-      "minSdkVersion": 24,
-      "hermesEnabled": false
     },
     "description": "Headlight app v2",
     "githubUrl": "https://github.com/WeAreHeadlight/app2",
@@ -63,7 +61,13 @@
     "plugins": [
       "sentry-expo",
       "expo-localization",
-      "expo-build-properties",
+      [
+        "expo-build-properties",
+        {"android":{
+          "minSdkVersion": 24,
+          "hermesEnabled": false
+        }}
+      ],
       "expo-tracking-transparency"
     ],
     "extra": {

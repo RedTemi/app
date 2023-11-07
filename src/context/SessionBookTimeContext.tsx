@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';
 
-import { noop } from '../utils/types';
+import { noop } from '../util/types';
 
 interface SessionBookTimeContextType {
   selectedTime: string;
@@ -28,7 +28,7 @@ interface SessionBookTimeProviderProps {
 
 export const SessionBookTimeProvider = ({ children }: SessionBookTimeProviderProps) => {
   const [selectedTime, setSelectedTime] = useState('');
-  const [preselectedTimes, setPreselectedTimes] = useState<string[]>([]);
+  const [preselectedTimes, setPreselectedTimes] = useState([]);
   const [isOnboarding, setIsOnboarding] = useState(false);
 
   const sessionBookTimeContext = useMemo(

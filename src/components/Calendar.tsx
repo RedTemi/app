@@ -1,4 +1,3 @@
-import { formatDateWithTZ, formatYearMonth, ISOFormat, tomorrowWithTimeZone, yearMonthDayFormat } from '../lib/date';
 import { startOfMonth, endOfMonth, format } from 'date-fns';
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
@@ -7,7 +6,8 @@ import { BasicDayProps } from 'react-native-calendars/src/calendar/day/basic';
 import { MarkingProps } from 'react-native-calendars/src/calendar/day/marking';
 import { DateData, DayState } from 'react-native-calendars/src/types';
 
-import ColorPalette from '@Constants/colors';
+import ColorPalette from '../constants/colors';
+import { formatDateWithTZ, formatYearMonth, ISOFormat, tomorrowWithTimeZone, yearMonthDayFormat } from '../lib/date';
 
 export interface CalendarMarkedDateProps {
   [key: string]: MarkingProps;
@@ -78,7 +78,7 @@ interface CalendarProps {
   changeSelectedDay: (arg: DateData | Partial<DateData>) => void;
   availableDays: string[];
   markedDates: CalendarMarkedDateProps;
-  sessionToRescheduledStart?: string;
+  sessionToRescheduledStart: string;
 }
 
 const Calendar = ({
@@ -203,6 +203,28 @@ const Calendar = ({
         textMonthFontSize: 18,
         textMonthFontFamily: 'graphikMedium',
         monthTextColor: 'black',
+        'stylesheet.calendar.main': {
+          week: {
+            marginTop: 20,
+            flexDirection: 'row',
+            justifyContent: 'center',
+            width: '140%',
+          },
+        },
+        'stylesheet.calendar.header': {
+          header: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginTop: 10,
+            marginBottom: 10,
+          },
+          dayTextAtIndex5: {
+            display: 'none',
+          },
+          dayTextAtIndex6: {
+            display: 'none',
+          },
+        },
       }}
     />
   );

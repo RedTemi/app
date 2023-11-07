@@ -1,11 +1,11 @@
-import Colors from '@Constants/colors';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 
-import Row from '@Components/Row';
+import Colors from '../constants/colors';
 
 import BackIcon from './BackIcon';
+import Row from './row';
 
 export enum ProgressDotVariant {
   black = 'black',

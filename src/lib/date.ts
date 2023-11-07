@@ -1,10 +1,11 @@
-import { addDays, format, startOfDay } from 'date-fns';
-import { formatInTimeZone } from 'date-fns-tz';
 import * as Localization from 'expo-localization';
-import * as RNLocalize from 'react-native-localize';
 
 import { uniqueValues } from './array';
 import './intl';
+
+import { format, addDays, startOfDay } from 'date-fns';
+import * as RNLocalize from 'react-native-localize';
+import { formatInTimeZone, utcToZonedTime } from 'date-fns-tz';
 
 export const yearMonthFormat = 'yyyy-MM';
 export const yearMonthDayFormat = 'yyyy-MM-dd';
@@ -19,7 +20,7 @@ export const tomorrowWithTimeZone = formatInTimeZone(tomorrow, timezone, yearMon
 export const tomorrowWithTimeZoneISO = formatInTimeZone(tomorrow, timezone, ISOFormat);
 export const tomorrowStartISO = formatInTimeZone(tomorrowStart, timezone, ISOFormat);
 
-const locales = uniqueValues([...Localization.locales, 'en-US', 'da-DK']) as string[];
+const locales = uniqueValues([...Localization.locales, 'en-US', 'da-DK']);
 
 export const formatDateWithTZ = (date: string | Date, dateFormat: typeof yearMonthDayFormat | typeof ISOFormat) => {
   return formatInTimeZone(date, timezone, dateFormat);
@@ -86,15 +87,13 @@ export function monthYear(dateString: string) {
   return dtf.monthYear.format(dateStringToDate(dateString));
 }
 
-export function time(date: string | Date) {
-  const dateToFormat = typeof date === 'string' ? dateStringToDate(date) : date;
-  return dtf.time.format(dateToFormat);
+export function time(dateString: string) {
+  return dtf.time.format(utcToZonedTime(dateString, timezone));
 }
 
 export function yearMonthDay(dateString: string) {
   return dtf.yearMonthDay.format(dateStringToDate(dateString));
 }
-
 function minutesToMilliseconds(minutes: number) {
   return minutes * 60000;
 }
@@ -109,6 +108,3 @@ export function isSameDay(d1Str: string, d2Str: string) {
 
 export const formatYearMonth = (date: Date) => format(date, yearMonthFormat);
 export const formatYearMonthDay = (date: Date) => format(date, yearMonthDayFormat);
-
-export const formatDayMonth = (date: Date) => format(date, 'dd LLLL');
-export const formatHoursMinutes = (date: Date) => format(date, 'k:mm');

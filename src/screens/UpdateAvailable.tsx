@@ -1,12 +1,12 @@
 import React from 'react';
-import { Linking, Platform, View } from 'react-native';
+import { View, Platform } from 'react-native';
+import { Linking } from 'react-native';
 
-import Row from '@Components/Row';
-
-import Button from '@Components/button';
-import SafeArea, { SafeAreaSize } from '@Components/safearea';
-import Typography, { TypographyVariant } from '@Components/typography';
-import { DevicePlatform } from '@Constants/global';
+import Button from '../components/button';
+import { Row } from '../components/flexbox';
+import SafeArea from '../components/safearea';
+import Typography from '../components/typography';
+import { DevicePlatform } from '../constants/global';
 
 const UpdateAvailableScreen = () => {
   const isIOS = Platform.OS === DevicePlatform.ios;
@@ -28,10 +28,10 @@ const UpdateAvailableScreen = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <SafeArea size={SafeAreaSize.lg}>
-        <Row style={{ height: '100%' }}>
+      <SafeArea size="lg">
+        <Row column style={{ height: '100%' }}>
           <View style={{ marginTop: '100%' }}>
-            <Typography variant={TypographyVariant.display22}>Update available</Typography>
+            <Typography variant="display2">Update available</Typography>
           </View>
           <View style={{ marginTop: 0, width: '100%' }}>
             <Button wide onPress={openAppStore} color="black">

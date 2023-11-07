@@ -1,10 +1,10 @@
 import { useMutation } from '@apollo/client';
 import { useActionSheet } from '@expo/react-native-action-sheet';
-import { FocuscheckDeleteDocument } from '../graphql/types.generated';
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 
-import HeaderRightDots from '@Components/HeaderRightDots';
+import HeaderRightDots from '../components/header_right_dots';
+import FocusCheckDelete from '../graphql/mutation.focuscheckDelete.graphql';
 import { Screen } from '../screens/index';
 
 const actionSheetConfig = {
@@ -17,7 +17,7 @@ const actionSheetConfig = {
 const useHeaderRight = (nodeId: string) => {
   const { showActionSheetWithOptions } = useActionSheet();
   const { navigate, setOptions } = useNavigation();
-  const [focuscheckDelete] = useMutation(FocuscheckDeleteDocument);
+  const [focuscheckDelete] = useMutation(FocusCheckDelete);
 
   const setHeaderRight = () => {
     const onActionSheetPress = async (buttonIndex: number) => {
@@ -26,7 +26,7 @@ const useHeaderRight = (nodeId: string) => {
       }
 
       if (buttonIndex === actionSheetConfig.editButtonIndex) {
-        navigate(Screen.FocusCheckStep1, { nodeId });
+        navigate('Focuscheck1', { nodeId });
       }
 
       if (buttonIndex === actionSheetConfig.destructiveButtonIndex) {

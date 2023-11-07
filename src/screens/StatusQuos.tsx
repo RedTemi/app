@@ -1,16 +1,15 @@
 import { useQuery } from '@apollo/client';
-import { ParticipantDetailsDocument, ParticipantDetailsQuery } from '../graphql/types.generated';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { View } from 'react-native';
 
-import Button from '@Components/Button';
-import Cell from '@Components/Cell';
-import SafeArea from '@Components/SafeArea';
-import ScrollViewRefresh from '@Components/ScrollViewRefresh';
-import StatusQuoListItem from '@Components/StatusQuoListItem';
-import Typography, { TypographyVariant } from '@Components/Typography';
-import { Screen } from '../screens/index';
+import Button from '../components/button';
+import Cell from '../components/cell';
+import SafeArea from '../components/safearea';
+import ScrollViewRefresh from '../components/scrollview_refresh';
+import StatusQuoListItem from '../components/StatusQuoListItem';
+import Typography from '../components/typography';
+import { ParticipantDetailsDocument, ParticipantDetailsQuery } from '../../types.generated';
 
 const StatusQuos = () => {
   const {
@@ -28,18 +27,18 @@ const StatusQuos = () => {
   );
 
   const onMakeButtonPress = () => {
-    navigate(Screen.EditStatusQuo, { editable: true });
+    navigate('EditSQ', { editable: true });
   };
 
   return (
-    <SafeArea>
+    <SafeArea size="none">
       <ScrollViewRefresh loading={loading} refetch={refetch}>
         <View style={{ margin: 15, marginTop: 70 }}>
-          <Typography variant={TypographyVariant.display36} centered linefit>
+          <Typography variant="display4" centered linefit>
             Status Quo
           </Typography>
 
-          <Typography variant={TypographyVariant.header} style={{ paddingHorizontal: 24 }} centered>
+          <Typography variant="heading" style={{ paddingHorizontal: 24 }} centered>
             These are areas where results aren’t currently showing up in my work life.
           </Typography>
 
@@ -50,7 +49,7 @@ const StatusQuos = () => {
 
         {Boolean(statusQuos.length) && (
           <View style={{ marginTop: 100 }}>
-            <Typography variant={TypographyVariant.display22} centered linefit>
+            <Typography variant="display2" centered linefit>
               Latest
             </Typography>
 

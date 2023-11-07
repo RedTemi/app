@@ -6,7 +6,6 @@ fragment SessionContent on Session {
   status
   sessionNo
   trainerId
-  markedRecognitionAt
   trainer {
     facetimeId
     skypeId
@@ -19,15 +18,5 @@ fragment SessionContent on Session {
   notes {
     note
     nodeId
-    createdAt
-    updatedAt
-  }
-  focusChecks {
-    nodeId
-  }
-  tasks {
-    nodeId
-    description
-    completedAt
   }
 }

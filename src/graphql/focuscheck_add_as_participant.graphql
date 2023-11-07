@@ -2,12 +2,11 @@
 
 mutation focuscheckAddAsParticipant
   (
-    $title: String!,
-    $intentionForMe: String,
-    $intentionForOthers: String,
-    $investigation: String,
-    $successCriteria: String,
-    $sessionId: ID
+    $title: String!
+    $intentionForMe: String
+    $intentionForOthers: String
+    $investigation: String
+    $successCriteria: String
   )
   {
     focuscheckAddAsParticipant
@@ -17,7 +16,6 @@ mutation focuscheckAddAsParticipant
         intentionForOthers: $intentionForOthers
         investigation: $investigation
         successCriteria: $successCriteria
-        sessionId: $sessionId
       )
       {
         ...FocuscheckContent

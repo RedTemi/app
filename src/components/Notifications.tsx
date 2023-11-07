@@ -1,25 +1,19 @@
-import { OperationVariables, useMutation } from '@apollo/client';
-import { MutationTuple } from '@apollo/client/react/types/types';
-import {
-  ParticipantSetExponentPushTokenDocument,
-  ParticipantSetExponentPushTokenMutation,
-} from '../graphql/types.generated';
+import { useMutation } from '@apollo/client';
+import MutationSetExponentPushToken from '../graphql/mutation.participantSetExponentPushToken.graphql';
 import { captureException } from '../lib/sentry';
-import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
-import { useEffect } from 'react';
-import PushNotification, { PushNotificationObject } from 'react-native-push-notification';
 
 import { useAuthContext } from '../context/AuthContext';
 
-import sentryErrorHandler from '../lib/errorHandler';
+import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
+import { useEffect } from 'react';
+import PushNotification, { PushNotificationObject } from 'react-native-push-notification';
+import sentryErrorHandler from '../lib/error_handler';
 
-const addDevice = async (
-  participantSetExponentPushToken: MutationTuple<ParticipantSetExponentPushTokenMutation, OperationVariables>[0],
-) => {
+const addDevice = async participantSetExponentPushToken => {
   try {
     const token = await messaging().getToken();
 
-    await participantSetExponentPushToken({ variables: { token } });
+    participantSetExponentPushToken({ variables: { token } });
   } catch (e) {
     sentryErrorHandler(e);
   }
@@ -46,12 +40,9 @@ const displayNotification = async (message: PushNotificationObject) => {
 };
 
 const Notifications = () => {
-  const [participantSetExponentPushToken] = useMutation<ParticipantSetExponentPushTokenMutation>(
-    ParticipantSetExponentPushTokenDocument,
-    {
-      onError: captureException,
-    },
-  );
+  const [participantSetExponentPushToken] = useMutation(MutationSetExponentPushToken, {
+    onError: captureException,
+  });
 
   const { isLoggedIn } = useAuthContext();
 
@@ -75,7 +66,7 @@ const Notifications = () => {
       const notification: PushNotificationObject = {
         messageId: message.messageId,
         title: message.notification?.title,
-        message: message.notification?.body || '',
+        message: message.notification?.body,
         userInfo: extraMessageData,
         channelId: 'global',
         bigLargeIcon: 'logo',

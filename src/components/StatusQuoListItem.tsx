@@ -1,20 +1,17 @@
-import { StatusQuo } from '../graphql/types.generated';
-import { yearMonthDay } from '../lib/date';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-import Cell from '@Components/Cell';
-import ArrowRight from '@Components/IconComponents/ArrowRightIcon';
-import Row from '@Components/Row';
-import { Screen } from '../screens/index';
-
+import { yearMonthDay } from '../lib/date';
 import styles from '../style/statusQuoListItem';
+import { StatusQuo } from '../../types.generated';
 
-import Typography, { TypographyVariant } from './Typography';
+import { Row, Cell } from './flexbox';
+import { ArrowRight } from './icons';
+import Typography from './typography';
 
 export interface StatusQuoListItemProps {
-  item: Partial<StatusQuo>;
+  item: StatusQuo;
   isCurrentStatusQuo: boolean;
 }
 
@@ -24,19 +21,17 @@ const StatusQuoListItem = ({ item, isCurrentStatusQuo }: StatusQuoListItemProps)
   const { nodeId, createdAt, statusQuo } = item;
 
   const onPress = () => {
-    navigate(Screen.EditStatusQuo, { nodeId, statusQuo, editable: isCurrentStatusQuo });
+    navigate('EditSQ', { nodeId, statusQuo, editable: isCurrentStatusQuo });
   };
 
   return (
     <TouchableOpacity key={nodeId} style={styles.container} onPress={onPress}>
       <Row alignItems="center" style={{ paddingVertical: 4 }}>
         <Cell style={styles.cellContent}>
-          {createdAt && (
-            <Typography variant={TypographyVariant.title} numberOfLines={1} style={styles.title}>
-              {yearMonthDay(createdAt)}
-            </Typography>
-          )}
-          <Typography variant={TypographyVariant.title} numberOfLines={1} style={styles.title}>
+          <Typography variant="title" numberOfLines={1} style={styles.title}>
+            {yearMonthDay(createdAt)}
+          </Typography>
+          <Typography numberOfLines={1} style={styles.title}>
             {statusQuo}
           </Typography>
         </Cell>

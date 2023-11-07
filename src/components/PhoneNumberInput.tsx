@@ -4,8 +4,8 @@ import { View } from 'react-native';
 import CountryPicker, { Country } from 'react-native-country-picker-modal';
 import TextInputMask from 'react-native-text-input-mask';
 
-import ColorPalette from '@Constants/colors';
-import countryMobileCodes from '@Constants/countryMobileCodes';
+import ColorPalette from '../constants/colors';
+import countryMobileCodes from '../constants/countryMobileCodes';
 
 enum Mask {
   US = '{+} [0] ([000])-[000]-[00]-[00]',
@@ -51,8 +51,8 @@ const getCountryDetails = (countryCode: Country['cca2']) => {
 };
 interface PhoneNumberInputProps {
   value: string;
-  setValue: (value: string) => void;
-  error?: string | null;
+  setValue: (value: string) => string;
+  error?: string;
 }
 
 const PhoneNumberInput = ({ value, setValue, error }: PhoneNumberInputProps) => {
@@ -103,6 +103,7 @@ const PhoneNumberInput = ({ value, setValue, error }: PhoneNumberInputProps) => 
         }}
         containerButtonStyle={{ marginBottom: 14 }}
         preferredCountries={[CountryCode.US, CountryCode.DK]}
+        closeButtonImageStyle={{ marginRight: 30 }}
       />
       <TextInputMask
         autoFocus

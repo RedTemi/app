@@ -1,15 +1,13 @@
 import { useQuery } from '@apollo/client';
-import { SessionBookDataQuery, SessionBookDataDocument } from '../graphql/types.generated';
 import { getDaysInMonth } from 'date-fns';
 import { useMemo } from 'react';
+import { SessionBookDataQuery } from 'types.generated';
+import SessionBookData from '../graphql/query.session_book.graphql';
 
 const daysFetchMore = 60;
 const pollInterval = 5 * 60 * 1000;
 
-const updateQuery = (
-  prev: SessionBookDataQuery,
-  { fetchMoreResult }: { fetchMoreResult?: SessionBookDataQuery | undefined },
-) => {
+const updateQuery = (prev, { fetchMoreResult }) => {
   if (fetchMoreResult === undefined) {
     return prev;
   }
@@ -24,7 +22,7 @@ const updateQuery = (
 const useAvailability = (startDate: string) => {
   const daysCountInMonth = getDaysInMonth(new Date(startDate));
 
-  const { data, loading, refetch, fetchMore } = useQuery<SessionBookDataQuery>(SessionBookDataDocument, {
+  const { data, loading, refetch, fetchMore } = useQuery<SessionBookDataQuery>(SessionBookData, {
     variables: { start: startDate, days: daysCountInMonth },
     notifyOnNetworkStatusChange: true,
     pollInterval,
@@ -46,10 +44,13 @@ const useAvailability = (startDate: string) => {
 
     const { start } = trainerAvailability[trainerAvailability.length - 1];
 
-    fetchMore({
-      variables: { start, days: daysFetchMore },
-      updateQuery,
-    });
+    if (fetchMore !== undefined) {
+      fetchMore({
+        variables: { start, days: daysFetchMore },
+        notifyOnNetworkStatusChange: true,
+        updateQuery,
+      });
+    }
   };
 
   return {

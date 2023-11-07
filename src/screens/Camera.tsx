@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { AntDesign, Entypo, MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Camera as ExpoCamera, CameraCapturedPicture, PermissionStatus } from 'expo-camera';
@@ -6,9 +5,9 @@ import { manipulateAsync, FlipType, SaveFormat } from 'expo-image-manipulator';
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, View, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
 
-import useImgPicker from '../hooks/imagePicker';
-import useUpload from '../hooks/imageUpload';
-import { CameraScreenProp } from '@Navigation/NavMain';
+import useImgPicker from '../hooks/img_picker';
+import useUpload from '../hooks/img_upload';
+import { CameraScreenProp } from '../navigation/main';
 
 export type CameraScreenParams = {
   navigateTo: string;
@@ -37,11 +36,11 @@ const Camera = () => {
 
   useEffect(() => {
     (async () => {
-      if (!image.uri) {
+      if (!image?.uri) {
         return;
       }
 
-      await uploadImage({ uri: image.uri });
+      await uploadImage(image);
       navigate(route.params.navigateTo);
     })();
   }, [image]);

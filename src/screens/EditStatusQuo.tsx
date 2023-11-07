@@ -1,31 +1,25 @@
 import { useMutation } from '@apollo/client';
-import ColorPalette from '@Constants/colors';
-import { StatusQuoAddDocument, StatusQuoUpdateDocument } from '../graphql/types.generated';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { TextInput } from 'react-native';
+import ColorPalette from '../constants/colors';
 
-import MeEdit from '@Components/MeEdit';
-import useHeaderSave from '../hooks//headerButton';
-import { EditStatusQuoScreenProp } from '@Navigation/NavMain';
-import { Screen } from '../screens/index';
+import MeEdit from '../components/me_edit';
+import useHeaderSave from '../hooks/header_button';
+import useTextInputRefs from '../hooks/text-input-refs';
+import { StatusQuoAddDocument, StatusQuoUpdateDocument } from '../../types.generated';
+
+import { Screen } from './index';
 
 const maxLength = 500;
 
-export type EditStatusQuoScreenParams = {
-  statusQuo: string;
-  editable?: boolean;
-  nodeId: number;
-};
-
 const EditStatusQuo = () => {
   const { navigate } = useNavigation();
+  const { textInputRef, getTextInputRefs } = useTextInputRefs();
 
-  const route = useRoute<EditStatusQuoScreenProp>();
+  const route = useRoute();
 
-  const { statusQuo } = route.params;
-
-  const [content, setContent] = useState(statusQuo || '');
+  const [content, setContent] = useState(route.params?.statusQuo || '');
 
   const [createStatusQuo] = useMutation(StatusQuoAddDocument);
   const [updateStatusQuo] = useMutation(StatusQuoUpdateDocument);
@@ -36,7 +30,7 @@ const EditStatusQuo = () => {
       return;
     }
 
-    if (route.params.nodeId) {
+    if (route.params?.nodeId) {
       await updateStatusQuo({
         variables: {
           statusQuo: contentStr,
@@ -53,11 +47,16 @@ const EditStatusQuo = () => {
     navigate(Screen.StatusQuos);
   };
 
-  useHeaderSave(saveContent, 'Save', {}, !route.params.editable);
+  useHeaderSave(saveContent, 'Save', {}, !route.params?.editable);
 
   return (
-    <MeEdit title="Status quo" description="These are the areas where results are not showing up in your work life.">
+    <MeEdit
+      title="Status quo"
+      description="These are the areas where results are not showing up in your work life."
+      getTextInputRefs={getTextInputRefs}
+    >
       <TextInput
+        ref={textInputRef}
         multiline
         textAlignVertical="top"
         placeholder="Type response here"
@@ -66,7 +65,7 @@ const EditStatusQuo = () => {
         maxLength={maxLength}
         autoCorrect={false}
         style={{ width: '100%', flex: 1, color: ColorPalette.black }}
-        editable={route.params.editable}
+        editable={route.params?.editable}
       />
     </MeEdit>
   );

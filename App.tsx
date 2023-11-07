@@ -1,22 +1,20 @@
-import { DevicePlatform } from './src/constants/global';
 import { ApolloProvider } from '@apollo/client';
 import { ActionSheetProvider } from '@expo/react-native-action-sheet';
-import client, { persistCacheInStorage } from './src/lib/client';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect, useCallback, useState } from 'react';
 import React from 'react';
-import { LogBox, Platform, StatusBar } from 'react-native';
-import './src/lib/sentry';
-import './src/lib/amplify';
-import { Linking } from 'react-native';
+import { Linking, LogBox, Platform, StatusBar } from 'react-native';
+import '@Lib/sentry';
+import '@Lib/amplify';
 import PushNotification from 'react-native-push-notification';
-
-import Notifications from './src/components/Notifications';
-import { AuthProvider } from './src/context/AuthContext';
-import { SessionBookTimeProvider } from './src/context/SessionBookTimeContext';
-import useFontLoader from './src/hooks/fontLoader';
-// import useTrackingConsent from './src/hooks/trackingConsent';
-import NavContainer from './src/navigation/container';
+import * as Sentry from 'sentry-expo';
+import * as SplashScreen from 'expo-splash-screen';
+import Notifications from '@Components/Notifications';
+import { DevicePlatform } from '@Constants/global';
+import { AuthProvider } from '@Context/AuthContext';
+import { SessionBookTimeProvider } from '@Context/SessionBookTimeContext';
+import useFontLoader from '@Hooks/font_loader';
+import client, { persistCacheInStorage } from '@Lib/client';
+import NavContainer from '@Navigation/container';
+import { useCallback, useEffect, useState } from 'react';
 
 SplashScreen.preventAutoHideAsync();
 LogBox.ignoreAllLogs();
@@ -37,7 +35,7 @@ PushNotification.createChannel(
   },
   () => {},
 );
-export default function App() {
+function App() {
   const [appIsReady, setAppIsReady] = useState(false);
   persistCacheInStorage();
 
@@ -93,3 +91,5 @@ useCallback(async () => {
     </ActionSheetProvider>
   );
 }
+
+export default Sentry.Native.withProfiler(App);
